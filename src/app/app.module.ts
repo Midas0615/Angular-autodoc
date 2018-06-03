@@ -9,8 +9,8 @@ import { CoreModule } from './core';
 import { SharedModule, HeaderComponent, FooterComponent } from './shared';
 import { ClaimComponent } from './claim/claim.component';
 import { ClaimDetailsComponent } from './claim/claim-details/claim-details.component';
-import { ProfileComponent } from './profile/profile.component';
 import { SecretaryComponent } from './secretary/secretary.component';
+import { ProfileModule } from './profile/profile.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,6 @@ import { SecretaryComponent } from './secretary/secretary.component';
     FooterComponent,
     ClaimComponent,
     ClaimDetailsComponent,
-    ProfileComponent,
     SecretaryComponent
   ],
   imports: [
@@ -27,6 +26,7 @@ import { SecretaryComponent } from './secretary/secretary.component';
     CoreModule,
     SharedModule,
     AuthModule,
+    ProfileModule,
     HomeModule,
     AppRoutingModule
   ],

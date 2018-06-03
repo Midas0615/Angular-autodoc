@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { User, UserService } from '../../core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-layout-header',
@@ -8,10 +9,12 @@ import { User, UserService } from '../../core';
 })
 export class HeaderComponent implements OnInit {
   constructor(
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) {}
 
   currentUser: User;
+  isAuthenticated = false;
 
   ngOnInit() {
     this.userService.currentUser.subscribe(
@@ -19,5 +22,15 @@ export class HeaderComponent implements OnInit {
         this.currentUser = userData;
       }
     );
+    this.userService.isAuthenticated.subscribe(
+      (data) => {
+        this.isAuthenticated = data
+      }
+    )
+  }
+
+  logout() {
+    this.userService.purgeAuth();
+    this.router.navigateByUrl('/');
   }
 }

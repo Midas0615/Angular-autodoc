@@ -29,7 +29,7 @@ export class UserService {
   // This runs once on application startup.
   populate() {
     // If JWT detected, attempt to get & store user's info
-    if (this.jwtService.getToken()) {
+    if (this.jwtService.getAccessToken()) {
       this.apiService.get('/user')
       .subscribe(
         data => this.setAuth(data.user),
@@ -43,7 +43,7 @@ export class UserService {
 
   setAuth(user: User) {
     // Save JWT sent from server in localstorage
-    this.jwtService.saveToken(user.token);
+    this.jwtService.saveToken(user.accessToken, user.refreshToken);
     // Set current user data into observable
     this.currentUserSubject.next(user);
     // Set isAuthenticated to true

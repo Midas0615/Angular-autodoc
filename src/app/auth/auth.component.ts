@@ -44,7 +44,6 @@ export class AuthComponent implements OnInit {
     this.isSubmitting = true;
 
     const credentials = this.authForm.value;
-    console.log(credentials);
     this.userService
     .attemptAuth(this.authType, credentials)
     .subscribe(

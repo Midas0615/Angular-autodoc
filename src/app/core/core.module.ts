@@ -9,7 +9,7 @@ import {
   AuthGuard,
   // CommentsService,
   JwtService,
-  // ProfilesService,
+  ProfileService,
   // TagsService,
   UserService
 } from './services';
@@ -25,7 +25,7 @@ import {
     AuthGuard,
     // CommentsService,
     JwtService,
-    // ProfilesService,
+    ProfileService,
     // TagsService,
     UserService
   ],
