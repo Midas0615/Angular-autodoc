@@ -9,25 +9,15 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./profile-view.component.css']
 })
 export class ProfileViewComponent implements OnInit {
-  user = {
-    last_name: 'Иванов',
-    first_name: 'Петр',
-    patronymic: 'Иванович',
-    structural_unit: 'ИКТИБ',
-    group: 'КТсо3-5',
-    course: '3',
-    email: 'p.ivanov@example.com',
-    passport: '3459 945998'
-  }
-
   currentUser: User;
   userProfile: Profile;
 
   constructor(
     private userService: UserService,
     // private profileService: ProfileService
-    private http: HttpClient
-  ) { }
+    // private http: HttpClient
+    private apiService: ApiService
+  ) {}
 
   ngOnInit() {
     this.userService.currentUser.subscribe(
@@ -40,7 +30,7 @@ export class ProfileViewComponent implements OnInit {
 
 
   getProfile() {
-    this.http.get<Profile>('http://localhost:5000/api/v1/users/' + this.currentUser.id).subscribe(
+    this.apiService.get('/users/' + this.currentUser.id).subscribe(
       (data: Profile) => this.userProfile = data
     )
   }

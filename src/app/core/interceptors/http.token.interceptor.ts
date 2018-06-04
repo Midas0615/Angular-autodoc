@@ -15,10 +15,10 @@ export class HttpTokenInterceptor implements HttpInterceptor {
       'Accept': 'application/json'
     };
 
-    const token = this.jwtService.getAccessToken();
+    const accessToken = this.jwtService.getAccessToken();
 
-    if (token) {
-      headersConfig['Authorization'] = `Token ${token}`;
+    if (accessToken) {
+      headersConfig['Authorization'] = `Bearer ${accessToken}`;
     }
 
     const request = req.clone({ setHeaders: headersConfig });

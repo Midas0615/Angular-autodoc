@@ -1,10 +1,37 @@
-<ul class="collection">
-  <li class="collection-item">Фамилия: {{ userProfile.last_name }}</li>
-  <li class="collection-item">Имя: {{ userProfile.first_name }}</li>
-  <li class="collection-item">Отчество: {{ userProfile.patronymic }}</li>
-  <li class="collection-item">Структурное подразделение: {{ userProfile.structural_unit }}</li>
-  <li class="collection-item">Группа: {{ userProfile.group }}</li>
-  <li class="collection-item">Курс: {{ userProfile.course }}</li>
-  <li class="collection-item">Email: {{ userProfile.email }}</li>
-  <li class="collection-item">Паспорт: {{ userProfile.passport_series }} {{ userProfile.passport_number }}</li>
-</ul>
+<table class="table" *ngIf="userProfile">
+  <tbody>
+    <tr>
+      <td>Фамилия:</td>
+      <td>{{ userProfile.last_name }}</td>
+    </tr>
+    <tr>
+      <td>Имя:</td>
+      <td>{{ userProfile.first_name }}</td>
+    </tr>
+    <tr>
+      <td>Отчество:</td>
+      <td>{{ userProfile.patronymic }}</td>
+    </tr>
+    <tr>
+      <td>Структурное подразделение:</td>
+      <td>{{ userProfile.structural_unit }}</td>
+    </tr>
+    <tr>
+      <td>Группа:</td>
+      <td>{{ userProfile.group }}</td>
+    </tr>
+    <tr>
+      <td>Курс:</td>
+      <td>{{ userProfile.course }}</td>
+    </tr>
+    <tr>
+      <td>Email:</td>
+      <td>{{ userProfile.email }}</td>
+    </tr>
+    <tr>
+      <td>Паспорт:</td>
+      <td>{{ userProfile.passport_series }} {{ userProfile.passport_number }}</td>
+    </tr>
+  </tbody>
+</table>
+<a class="btn btn-elegant" routerLink="/profile/edit">Редактировать</a>

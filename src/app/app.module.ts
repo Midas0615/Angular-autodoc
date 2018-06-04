@@ -11,6 +11,7 @@ import { ClaimComponent } from './claim/claim.component';
 import { ClaimDetailsComponent } from './claim/claim-details/claim-details.component';
 import { SecretaryComponent } from './secretary/secretary.component';
 import { ProfileModule } from './profile/profile.module';
+import { CustomMaterialModule } from './custom-material/custom-material.module';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ProfileModule } from './profile/profile.module';
     BrowserModule,
     CoreModule,
     SharedModule,
+    CustomMaterialModule,
     AuthModule,
     ProfileModule,
     HomeModule,

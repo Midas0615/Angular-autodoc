@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -12,7 +12,8 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    BrowserAnimationsModule,
   ],
   exports: [
     // ArticleListComponent,
@@ -26,6 +27,7 @@ import { RouterModule } from '@angular/router';
     // ListErrorsComponent,
     RouterModule,
     // ShowAuthedDirective
+    BrowserAnimationsModule
   ]
 })
 export class SharedModule {}

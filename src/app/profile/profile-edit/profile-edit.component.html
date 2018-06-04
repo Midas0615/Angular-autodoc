@@ -1,3 +1,33 @@
-<p>
-  profile-edit works!
-</p>
+<form [formGroup]="profileForm" (submit)="submitForm()" *ngIf="isProfileLoaded">
+  <mat-form-field>
+      <input matInput placeholder="Фамилия" type="text" id="inputLastName" formControlName="lastName">
+  </mat-form-field>
+  <mat-form-field>
+      <input matInput placeholder="Имя" type="text" id="inputFirstName" formControlName="firstName">
+  </mat-form-field>
+  <mat-form-field>
+      <input matInput placeholder="Отчество" type="text" id="inputPatronymic"  formControlName="patronymic">
+  </mat-form-field>
+  <mat-form-field>
+      <input matInput placeholder="Структурное подразделение:" type="text" id="inputStructuralUnit" formControlName="structuralUnit">
+  </mat-form-field>
+  <mat-form-field>
+      <input matInput placeholder="Группа" type="text" id="inputGroup"  formControlName="group" >
+  </mat-form-field>
+  <mat-form-field>
+      <input matInput placeholder="Курс" type="text" id="inputCourse" formControlName="course">
+  </mat-form-field>
+  <mat-form-field>
+      <input matInput placeholder="Email" type="text" id="inputEmail" formControlName="email">
+  </mat-form-field>
+  <p>Паспорт</p>
+  <mat-form-field>
+      <input matInput placeholder="Серия" type="text" id="inputPassportSeries" formControlName="passportSeries">
+  </mat-form-field>
+  <mat-form-field>
+      <input matInput placeholder="Номер" type="text" id="inputPassportNumber" formControlName="passportNumber">
+  </mat-form-field>
+  <button type="submit" class="btn btn-elegant">
+      Сохранить изменения
+  </button>
+</form>

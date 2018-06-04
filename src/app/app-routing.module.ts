@@ -3,11 +3,12 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { AuthComponent } from './auth/auth.component';
 import { ClaimComponent } from './claim/claim.component';
 import { ClaimDetailsComponent } from './claim/claim-details/claim-details.component';
+import { AuthGuard } from './core';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: 'claim', component: ClaimComponent },
-  { path: 'claim/:id', component: ClaimDetailsComponent }
+  { path: 'claim/:id', component: ClaimDetailsComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

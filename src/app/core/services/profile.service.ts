@@ -14,12 +14,11 @@ export class ProfileService {
         private http: HttpClient
     ) {}
 
-    getProfile(user) {
-        return this.apiService.get('/users/' + user.id)
-            // .pipe(map(
-            //     data => {
-            //         this.profileSubject.next(user)
-            //     }
-            // ))
+    getProfile(user_id) {
+        return this.apiService.get('/users/' + user_id);
+    }
+
+    setProfile(user_id, profileData) {
+        return this.apiService.put('/users/' + user_id, profileData);
     }
 }
