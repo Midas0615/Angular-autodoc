@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
+import { MdModule } from './md/md.module';
 
 @NgModule({
   imports: [
@@ -14,20 +14,16 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     HttpClientModule,
     RouterModule,
     BrowserAnimationsModule,
+    MdModule
   ],
   exports: [
-    // ArticleListComponent,
-    // ArticleMetaComponent,
-    // ArticlePreviewComponent,
     CommonModule,
-    // FavoriteButtonComponent,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    // ListErrorsComponent,
     RouterModule,
-    // ShowAuthedDirective
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MdModule
   ]
 })
 export class SharedModule {}

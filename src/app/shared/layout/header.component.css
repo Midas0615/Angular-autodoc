@@ -1,0 +1,11 @@
+mat-toolbar {
+    background-color: #616161;
+}
+
+nav {
+    margin: 0 0 0 auto;
+}
+
+nav a {
+    color: white;
+}

@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { MatListModule, MatButtonModule } from '@angular/material';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   imports: [
@@ -10,14 +12,18 @@ import {MatInputModule} from '@angular/material/input';
     MatListModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatToolbarModule,
+    MatTabsModule
   ],
   exports: [
     MatListModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatToolbarModule,
+    MatTabsModule
   ],
   declarations: []
 })
-export class CustomMaterialModule { }
+export class MdModule { }

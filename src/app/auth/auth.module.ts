@@ -9,16 +9,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from '../core';
-import { CustomMaterialModule } from '../custom-material/custom-material.module';
 
 @NgModule({
   imports: [
-    // SharedModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     AuthRoutingModule,
-    CustomMaterialModule
   ],
   declarations: [
     AuthComponent
