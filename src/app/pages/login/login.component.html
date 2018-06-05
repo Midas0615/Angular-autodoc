@@ -1,0 +1,16 @@
+<mat-card>
+    <mat-card-title>
+      Войти
+    </mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
+        <mat-form-field>
+          <input matInput placeholder="Email адрес" formControlName="email">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="password" placeholder="Пароль" formControlName="password">
+        </mat-form-field>
+        <button mat-button type="submit">Войти</button>
+      </form>
+    </mat-card-content>
+</mat-card>
