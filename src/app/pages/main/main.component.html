@@ -14,7 +14,7 @@
         
             <ng-container cdkColumnDef="status">
             <th cdk-header-cell *cdkHeaderCellDef> Статус </th>
-            <td cdk-cell *cdkCellDef="let element"> {{element.status}} </td>
+            <td cdk-cell *cdkCellDef="let element"> {{element.status | status}} </td>
             </ng-container>
         
             <ng-container cdkColumnDef="details">

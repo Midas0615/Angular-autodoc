@@ -13,6 +13,7 @@ import {
   ClaimNewComponent,
   ClaimDetailsComponent } from './pages';
 import { AppRoutingModule } from './app-routing.module';
+import { StatusPipe } from './pages/main/status.pipe';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { AppRoutingModule } from './app-routing.module';
     ProfileEditComponent,
     ClaimNewComponent,
     ClaimDetailsComponent,
-    FooterComponent
+    FooterComponent,
+    StatusPipe
   ],
   imports: [
     BrowserModule,
