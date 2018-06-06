@@ -7,3 +7,17 @@ form {
 mat-form-field {
     width: 100%;
 }
+
+.helper-text[data-error] {
+    color:transparent;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    pointer-events: none;
+  }
+
+  .helper-text:after {
+    content: attr(data-error);
+    color: #F44336;
+  }

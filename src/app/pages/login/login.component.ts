@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
     this.isSubmitting = true;
     const credentials = this.loginForm.value;
     this.userService
-    .attemptAuth('login', credentials)
+    .login(credentials)
     .subscribe(
       data => this.router.navigateByUrl('/'),
       err => {

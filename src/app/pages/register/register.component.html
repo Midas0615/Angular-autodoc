@@ -3,17 +3,38 @@
       Регистрация
     </mat-card-title>
     <mat-card-content>
-      <form>
+      <form [formGroup]="registerForm" (ngSubmit)="submitForm()">
         <mat-form-field>
-          <input matInput placeholder="Email адрес">
+          <input matInput placeholder="Email адрес" formControlName="email">
+          <mat-error *ngIf="registerForm.controls.email.hasError('required')">
+            Поле Email не должно быть пустым
+          </mat-error>
         </mat-form-field>
+        <div formGroupName="passwords">
+          <mat-form-field>
+            <input matInput type="password" placeholder="Пароль" formControlName="password">
+            <mat-error *ngIf="registerForm.controls.passwords.controls.password.hasError('required')">
+              Поле Пароль не должно быть пустым
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput type="password" placeholder="Подтвердите пароль" formControlName="confirmPassword">
+              <mat-error *ngIf="registerForm.controls.passwords.controls.confirmPassword.hasError('required')">
+                Поле Подтвердите пароль не должно быть пустым
+              </mat-error>
+              <mat-error *ngIf="registerForm.controls.passwords.controls.confirmPassword.errors?.MatchPassword">
+                Пароли не совпадают
+              </mat-error>
+          </mat-form-field>
+        </div>
         <mat-form-field>
-          <input matInput type="password" placeholder="Пароль">
+          <mat-select placeholder="Выберите роль" formControlName="role">
+            <mat-option *ngFor="let role of roles" [value]="role.value">
+              {{ role.viewValue }}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
-        <mat-form-field>
-            <input matInput type="password" placeholder="Повторите пароль">
-        </mat-form-field>
-        <button mat-button>Зарегистрироваться</button>
+        <button mat-button type="submit">Зарегистрироваться</button>
       </form>
     </mat-card-content>
 </mat-card>
