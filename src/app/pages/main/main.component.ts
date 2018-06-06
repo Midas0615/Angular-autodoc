@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ClaimService } from '../../core';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { DataSource } from '@angular/cdk/table';
 
 @Component({
   selector: 'app-main',
@@ -6,25 +9,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  displayedColumns = ['position', 'date', 'status', 'details'];
-  dataSource = ELEMENT_DATA;
-  constructor() { }
+  displayedColumns = ['position', 'created_at', 'status', 'details'];
+  dataSource = this.claimService.getClaims();
+  constructor(
+    private claimService: ClaimService
+  ) { }
 
   ngOnInit() {
+    this.dataSource.subscribe(
+      (data) => console.log(data)
+    )
   }
+
 }
 
+
 export interface ClaimElement {
-  position: number;
-  date: string;
+  position: string;
+  created_at: string;
   status: string;
   details: string;
 }
-
-const ELEMENT_DATA: ClaimElement[] = [
-  {position: 1, date: '25.04.2016', status: 'Не рассмотрена', details: '/claim/1'},
-  {position: 2, date: '28.04.2016', status: 'Рассмотрена', details: '/claim/2'},
-  {position: 3, date: '01.05.2016', status: 'Принята', details: '/claim/3'},
-];
-
-

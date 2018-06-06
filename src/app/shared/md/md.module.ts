@@ -7,7 +7,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatCardModule} from '@angular/material/card';
 import {MatSelectModule} from '@angular/material/select';
-import {MatTableModule} from '@angular/material/table';
+import {CdkTableModule} from '@angular/cdk/table';
 
 @NgModule({
   imports: [
@@ -20,7 +20,7 @@ import {MatTableModule} from '@angular/material/table';
     MatTabsModule,
     MatCardModule,
     MatSelectModule,
-    MatTableModule
+    CdkTableModule
   ],
   exports: [
     MatListModule,
@@ -31,7 +31,7 @@ import {MatTableModule} from '@angular/material/table';
     MatTabsModule,
     MatCardModule,
     MatSelectModule,
-    MatTableModule
+    CdkTableModule
   ],
   declarations: []
 })

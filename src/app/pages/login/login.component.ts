@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
     this.userService
     .login(credentials)
     .subscribe(
-      data => this.router.navigateByUrl('/'),
+      data => this.router.navigateByUrl('/main'),
       err => {
         this.isSubmitting = false;
       }
