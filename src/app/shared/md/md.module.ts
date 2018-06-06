@@ -8,6 +8,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatCardModule} from '@angular/material/card';
 import {MatSelectModule} from '@angular/material/select';
 import {CdkTableModule} from '@angular/cdk/table';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import {CdkTableModule} from '@angular/cdk/table';
     MatTabsModule,
     MatCardModule,
     MatSelectModule,
-    CdkTableModule
+    CdkTableModule,
+    MatIconModule
   ],
   exports: [
     MatListModule,
@@ -31,7 +33,8 @@ import {CdkTableModule} from '@angular/cdk/table';
     MatTabsModule,
     MatCardModule,
     MatSelectModule,
-    CdkTableModule
+    CdkTableModule,
+    MatIconModule
   ],
   declarations: []
 })

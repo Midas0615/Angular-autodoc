@@ -16,9 +16,6 @@ export class MainComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.dataSource.subscribe(
-      (data) => console.log(data)
-    )
   }
 
 }

@@ -20,10 +20,14 @@ export class ClaimService {
             position: el.id,
             created_at: el.created_at,
             status: el.status,
-            details: `/claims/${el.id}`
+            details: `/claim/${el.id}`
           })
         });
         return result
       }))
+  }
+
+  getClaimDetail(claim_id) {
+    return this.apiService.get(`/claims/${claim_id}`)
   }
 }
