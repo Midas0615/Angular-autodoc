@@ -40,7 +40,7 @@ export class RegisterComponent implements OnInit {
     this.isSubmitting = true;
     const credentials = {
       'email': this.registerForm.controls.email.value,
-      'password': this.registerForm.controls.passwords.controls.confirmPassword.value,
+      'password': this.registerForm['controls'].passwords['controls'].confirmPassword.value,
       'role': this.registerForm.controls.role.value
     };
     this.userService
