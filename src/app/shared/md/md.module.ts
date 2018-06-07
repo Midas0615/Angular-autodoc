@@ -9,6 +9,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatSelectModule} from '@angular/material/select';
 import {CdkTableModule} from '@angular/cdk/table';
 import {MatIconModule} from '@angular/material/icon';
+import {MatStepperModule} from '@angular/material/stepper';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import {MatIconModule} from '@angular/material/icon';
     MatCardModule,
     MatSelectModule,
     CdkTableModule,
-    MatIconModule
+    MatIconModule,
+    MatStepperModule
   ],
   exports: [
     MatListModule,
@@ -34,7 +36,8 @@ import {MatIconModule} from '@angular/material/icon';
     MatCardModule,
     MatSelectModule,
     CdkTableModule,
-    MatIconModule
+    MatIconModule,
+    MatStepperModule
   ],
   declarations: []
 })

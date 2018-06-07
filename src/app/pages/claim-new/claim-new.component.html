@@ -1,45 +1,70 @@
-<div class="col-md-6 offset-md-3">
-<form>
-    <div class="form-group">
-      <label for="inputDstCountry">Страна</label>
-      <input type="text" class="form-control" id="inputDstCountry" aria-describedby="emailHelp">
+<mat-horizontal-stepper [linear]="false" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Пункт назначения</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="Страна" formControlName="dstCountry" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Населенный пункт" formControlName="dstCity" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Организация" formControlName="dstOrganization" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Далее</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Информация о датах</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="Срок" formControlName="term" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Дата начала" formControlName="startDate" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Дата окончания" formControlName="finishDate" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Назад</button>
+        <button mat-button matStepperNext>Далее</button>
+      </div>
+    </form>
+  </mat-step>
+
+
+  <mat-step [stepControl]="thirdFormGroup">
+    <form [formGroup]="thirdFormGroup">
+      <ng-template matStepLabel>Дополнительно</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="Цель" formControlName="goal" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Источник финансирования" formControlName="financialSource" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Транспорт" formControlName="transport" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Заведующий кафедрой" formControlName="headOfDepartment" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Назад</button>
+        <button mat-button matStepperNext>Далее</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    You are now done.
+    <div>
+      <button mat-button matStepperPrevious>Назад</button>
+      <button mat-button (click)="stepper.reset()">Сбросить</button>
+      <button mat-button (click)="createClaim()">Подать заявку</button>
     </div>
-    <div class="form-group">
-      <label for="inputDstCity">Город</label>
-      <input type="text" class="form-control" id="inputDstCity">
-    </div>
-    <div class="form-group">
-      <label for="inputDstOrganization">Организация</label>
-      <input type="text" class="form-control" id="inputDstOrganization">
-    </div>
-    <div class="form-group">
-      <label for="inputGoal">Цель</label>
-      <input type="text" class="form-control" id="inputGoal">
-    </div>
-    <div class="form-group">
-      <label for="inputTerm">Срок</label>
-      <input type="text" class="form-control" id="inputTerm">
-    </div>
-    <div class="form-group">
-      <label for="inputStartDate">Дата начала</label>
-      <input type="text" class="form-control" id="inputStartDate">
-    </div>
-    <div class="form-group">
-      <label for="inputFinishDate">Дата окончания</label>
-      <input type="text" class="form-control" id="inputFinishDate">
-    </div>
-    <div class="form-group">
-      <label for="inputTransport">Транспорт</label>
-      <input type="text" class="form-control" id="inputTransport">
-    </div>
-    <div class="form-group">
-      <label for="inputFinSource">Источник финансирования</label>
-      <input type="text" class="form-control" id="inputFinSource">
-    </div>
-    <div class="form-group">
-      <label for="inputHOD">Заведующий кафедрой</label>
-      <input type="text" class="form-control" id="inputHOD">
-    </div>
-    <button type="submit" class="btn btn-primary">Оформить командировку</button>
-  </form>
-</div>
+  </mat-step>
+</mat-horizontal-stepper>
