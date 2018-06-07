@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ClaimService } from '../../core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-claim-new',
@@ -14,7 +15,8 @@ export class ClaimNewComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private claimService: ClaimService
+    private claimService: ClaimService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -37,11 +39,17 @@ export class ClaimNewComponent implements OnInit {
   }
 
   createClaim() {
-    console.log(Object.assign(
+    const claimDetails = Object.assign(
       this.firstFormGroup.value,
       this.secondFormGroup.value,
       this.thirdFormGroup.value
-    ))
+    );
+
+    claimDetails.startDate = claimDetails.startDate._d.getTime() / 1000;
+    claimDetails.finishDate = claimDetails.finishDate._d.getTime() / 1000;
+    this.claimService.createClaim(claimDetails).subscribe(
+      () => this.router.navigateByUrl('/main')
+    )
   }
 
 }
