@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatListModule, MatButtonModule, MatNativeDateModule } from '@angular/material';
+import { MatListModule, MatButtonModule } from '@angular/material';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -11,7 +11,7 @@ import {CdkTableModule} from '@angular/cdk/table';
 import {MatIconModule} from '@angular/material/icon';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-
+import {MatMomentDateModule} from '@angular/material-moment-adapter'
 @NgModule({
   imports: [
     CommonModule,
@@ -27,7 +27,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatIconModule,
     MatStepperModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatMomentDateModule
   ],
   exports: [
     MatListModule,
@@ -42,7 +42,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatIconModule,
     MatStepperModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatMomentDateModule
   ],
   declarations: []
 })

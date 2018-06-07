@@ -30,4 +30,8 @@ export class ClaimService {
   getClaimDetail(claim_id) {
     return this.apiService.get(`/claims/${claim_id}`)
   }
+
+  createClaim(payload) {
+    return this.apiService.post('/claims/', payload)
+  }
 }

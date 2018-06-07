@@ -14,6 +14,7 @@ import {
   ClaimDetailsComponent } from './pages';
 import { AppRoutingModule } from './app-routing.module';
 import { StatusPipe } from './pages/main/status.pipe';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 
 @NgModule({
@@ -36,7 +37,9 @@ import { StatusPipe } from './pages/main/status.pipe';
     SharedModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    {provide: MAT_DATE_LOCALE, useValue: 'ru-RU'},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

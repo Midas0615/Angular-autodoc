@@ -20,7 +20,7 @@ const routes: Routes = [
     component: MainComponent,
     canActivate: [AuthGuard]
   },
-  { path: 'claim', component: ClaimNewComponent },
+  { path: 'claim', component: ClaimNewComponent, canActivate: [AuthGuard] },
   { path: 'claim/:id', component: ClaimDetailsComponent, canActivate: [AuthGuard] },
   {
     path: 'profile/view',
