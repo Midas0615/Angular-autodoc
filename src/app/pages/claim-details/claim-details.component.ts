@@ -22,16 +22,16 @@ export class ClaimDetailsComponent implements OnInit {
     this.claimService.getClaimDetail(this.claimId).subscribe(
       data => {
         this.claimDetails = {
-          id: data._id.$oid,
-          created_at: data.created_at.$date,
-          request_person_id: data.request_person_id.$oid,
+          id: data.id,
+          created_at: data.created_at,
+          request_person_id: data.request_person.email,
           status: data.status,
           dst_city: data.claim_data.dst_city,
           dst_country: data.claim_data.dst_country,
           dst_organization: data.claim_data.dst_organization,
           goal: data.claim_data.goal,
-          start_date: data.claim_data.start_date.$date,
-          finish_date: data.claim_data.finish_date.$date,
+          start_date: data.claim_data.start_date,
+          finish_date: data.claim_data.finish_date,
           term: data.claim_data.term,
           financial_source: data.claim_data.financial_source,
           transport: data.claim_data.transport,

@@ -12,7 +12,7 @@ export class ClaimService {
   ) { }
 
   getClaims() {
-    return this.apiService.get('/claims/')
+    return this.apiService.get('/claims')
       .pipe(map(data => {
         const result = []
         data.forEach(el => {
@@ -32,6 +32,6 @@ export class ClaimService {
   }
 
   createClaim(payload) {
-    return this.apiService.post('/claims/', payload)
+    return this.apiService.post('/claims', payload)
   }
 }

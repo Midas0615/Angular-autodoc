@@ -1,15 +1,15 @@
 <form [formGroup]="profileForm" (submit)="submitForm()" *ngIf="isProfileLoaded">
   <mat-form-field>
-      <input matInput placeholder="Фамилия" type="text" id="inputLastName" formControlName="lastName">
+      <input matInput placeholder="Фамилия" type="text" id="inputLastName" formControlName="last_name">
   </mat-form-field>
   <mat-form-field>
-      <input matInput placeholder="Имя" type="text" id="inputFirstName" formControlName="firstName">
+      <input matInput placeholder="Имя" type="text" id="inputFirstName" formControlName="first_name">
   </mat-form-field>
   <mat-form-field>
       <input matInput placeholder="Отчество" type="text" id="inputPatronymic"  formControlName="patronymic">
   </mat-form-field>
   <mat-form-field>
-      <input matInput placeholder="Структурное подразделение:" type="text" id="inputStructuralUnit" formControlName="structuralUnit">
+      <input matInput placeholder="Структурное подразделение:" type="text" id="inputStructuralUnit" formControlName="structural_unit">
   </mat-form-field>
   <mat-form-field>
       <input matInput placeholder="Группа" type="text" id="inputGroup"  formControlName="group" >
@@ -22,10 +22,10 @@
   </mat-form-field>
   <p>Паспорт</p>
   <mat-form-field>
-      <input matInput placeholder="Серия" type="text" id="inputPassportSeries" formControlName="passportSeries">
+      <input matInput placeholder="Серия" type="text" id="inputPassportSeries" formControlName="passport_series">
   </mat-form-field>
   <mat-form-field>
-      <input matInput placeholder="Номер" type="text" id="inputPassportNumber" formControlName="passportNumber">
+      <input matInput placeholder="Номер" type="text" id="inputPassportNumber" formControlName="passport_number">
   </mat-form-field>
   <button type="submit" class="btn btn-elegant">
       Сохранить изменения

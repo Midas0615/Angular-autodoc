@@ -20,15 +20,15 @@ export class ProfileEditComponent implements OnInit {
     private router: Router,
   ) {
     this.profileForm = new FormGroup({
-      lastName: new FormControl(),
-      firstName: new FormControl(),
+      last_name: new FormControl(),
+      first_name: new FormControl(),
       patronymic: new FormControl(),
-      structuralUnit: new FormControl(),
+      structural_unit: new FormControl(),
       course: new FormControl(),
       group: new FormControl(),
       email: new FormControl(),
-      passportSeries: new FormControl(),
-      passportNumber: new FormControl()
+      passport_series: new FormControl(),
+      passport_number: new FormControl()
     })
   }
 
@@ -41,15 +41,15 @@ export class ProfileEditComponent implements OnInit {
     this.profileService.getProfile(this.currentUser.id).subscribe(
       (data: Profile) => {
         this.isProfileLoaded = true;
-        this.profileForm.controls.lastName.setValue(data.last_name);
-        this.profileForm.controls.firstName.setValue(data.first_name);
+        this.profileForm.controls.last_name.setValue(data.last_name);
+        this.profileForm.controls.first_name.setValue(data.first_name);
         this.profileForm.controls.patronymic.setValue(data.patronymic);
-        this.profileForm.controls.structuralUnit.setValue(data.structural_unit);
+        this.profileForm.controls.structural_unit.setValue(data.structural_unit);
         this.profileForm.controls.course.setValue(data.course);
         this.profileForm.controls.group.setValue(data.group);
         this.profileForm.controls.email.setValue(data.email);
-        this.profileForm.controls.passportSeries.setValue(data.passport_series);
-        this.profileForm.controls.passportNumber.setValue(data.passport_number);
+        this.profileForm.controls.passport_series.setValue(data.passport_series);
+        this.profileForm.controls.passport_number.setValue(data.passport_number);
       }
     );
   }

@@ -30,7 +30,7 @@ export class ProfileViewComponent implements OnInit {
 
 
   getProfile() {
-    this.apiService.get('/users/' + this.currentUser.id).subscribe(
+    this.apiService.get(`/profiles/${this.currentUser.id}`).subscribe(
       (data: Profile) => this.userProfile = data
     )
   }
