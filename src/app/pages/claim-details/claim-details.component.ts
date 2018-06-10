@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ClaimService } from '../../core';
-import { ActivatedRoute } from '@angular/router';
+import { ClaimService, UserService, User } from '../../core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-claim-details',
@@ -11,10 +11,13 @@ export class ClaimDetailsComponent implements OnInit {
   claimId: String = '';
 
   claimDetails: ClaimDetails;
+  currentUser: User;
 
   constructor(
     private claimService: ClaimService,
-    private route: ActivatedRoute
+    private userService: UserService,
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -37,6 +40,27 @@ export class ClaimDetailsComponent implements OnInit {
           transport: data.claim_data.transport,
           head_of_department: data.claim_data.head_of_department
         }
+      }
+    );
+    this.userService.currentUser.subscribe(
+      (userData) => {
+        this.currentUser = userData;
+      }
+    );
+  }
+
+  accept() {
+    this.claimService.acceptClaim(this.claimId).subscribe(
+      data => {
+        this.claimDetails.status = 'accepted';
+      }
+    )
+  }
+
+  reject() {
+    this.claimService.rejectClaim(this.claimId).subscribe(
+      data => {
+        this.claimDetails.status = 'rejected';
       }
     )
   }

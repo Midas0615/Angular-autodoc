@@ -17,6 +17,12 @@
   </mat-card-content>
   <mat-card-actions>
     <a routerLink="/main"><mat-icon>arrow_back</mat-icon></a>
+    <button mat-button *ngIf="currentUser.role === 'lpr'" (click)="accept()">
+      Одобрить
+    </button>
+    <button mat-button *ngIf="currentUser.role === 'lpr'" (click)="reject()">
+      Отклонить
+    </button>
   </mat-card-actions>
 
 </mat-card>

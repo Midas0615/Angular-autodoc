@@ -16,7 +16,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { StatusPipe } from './pages/main/status.pipe';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +28,7 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
     ClaimNewComponent,
     ClaimDetailsComponent,
     FooterComponent,
-    StatusPipe
+    StatusPipe,
   ],
   imports: [
     BrowserModule,

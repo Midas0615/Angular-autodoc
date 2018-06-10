@@ -1,9 +1,10 @@
 <mat-toolbar>
-    <nav mat-tab-nav-bar>
-      <a mat-tab-link routerLink="/main" *ngIf="isAuthenticated">Главная</a>
-      <a mat-tab-link routerLink="/profile/view" *ngIf="isAuthenticated">Профиль</a>
-      <a mat-tab-link routerLink="/login" *ngIf="!isAuthenticated">Войти</a>
-      <a mat-tab-link routerLink="/register" *ngIf="!isAuthenticated">Зарегистрироваться</a>
-      <a mat-tab-link (click)="logout()" *ngIf="isAuthenticated" href="javascript:void()">Выйти</a>
-    </nav>
+  <span *ngIf="isAuthenticated" class="toolbar-role">Ваш статус: {{ currentUser.role }}</span>
+  <nav mat-tab-nav-bar>
+    <a mat-tab-link routerLink="/main" *ngIf="isAuthenticated">Главная</a>
+    <a mat-tab-link routerLink="/profile/view" *ngIf="isAuthenticated">Профиль</a>
+    <a mat-tab-link routerLink="/login" *ngIf="!isAuthenticated">Войти</a>
+    <a mat-tab-link routerLink="/register" *ngIf="!isAuthenticated">Зарегистрироваться</a>
+    <a mat-tab-link (click)="logout()" *ngIf="isAuthenticated" href="javascript:void()">Выйти</a>
+  </nav>
 </mat-toolbar>

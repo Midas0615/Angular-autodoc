@@ -9,7 +9,7 @@ import {
   ProfileViewComponent,
   ProfileEditComponent
 } from './pages';
-import { AuthGuard } from './core';
+import { AuthGuard, LprGuard } from './core';
 
 const routes: Routes = [
   {path: '', redirectTo: '/main', pathMatch: 'full'},

@@ -2,6 +2,11 @@ mat-toolbar {
     background-color: #616161;
 }
 
+.toolbar-role {
+    color: white;
+    font-size: 14px;
+}
+
 nav {
     margin: 0 0 0 auto;
 }

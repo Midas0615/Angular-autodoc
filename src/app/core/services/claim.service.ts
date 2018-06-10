@@ -34,4 +34,12 @@ export class ClaimService {
   createClaim(payload) {
     return this.apiService.post('/claims', payload)
   }
+
+  acceptClaim(claim_id) {
+    return this.apiService.put(`/claims/${claim_id}/accept`)
+  }
+
+  rejectClaim(claim_id) {
+    return this.apiService.put(`/claims/${claim_id}/reject`)
+  }
 }
