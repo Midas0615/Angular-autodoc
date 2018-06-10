@@ -23,6 +23,9 @@
     <button mat-button *ngIf="currentUser.role === 'lpr'" (click)="reject()">
       Отклонить
     </button>
+    <button mat-button *ngIf="currentUser.role === 'secretary'" (click)="createDocuments()">
+      Сгенерировать документы
+    </button>
   </mat-card-actions>
 
 </mat-card>

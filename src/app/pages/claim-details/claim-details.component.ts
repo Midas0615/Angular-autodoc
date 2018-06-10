@@ -65,6 +65,10 @@ export class ClaimDetailsComponent implements OnInit {
     )
   }
 
+  createDocuments() {
+    console.log('Generating documents');
+  }
+
 }
 
 interface ClaimDetails {
