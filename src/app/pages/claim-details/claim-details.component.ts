@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ClaimService, UserService, User } from '../../core';
+import { ClaimService, UserService, User, DocumentService } from '../../core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -12,16 +12,25 @@ export class ClaimDetailsComponent implements OnInit {
 
   claimDetails: ClaimDetails;
   currentUser: User;
+  readyDocuments: any[];
 
   constructor(
     private claimService: ClaimService,
     private userService: UserService,
+    private documentService: DocumentService,
     private route: ActivatedRoute,
     private router: Router
   ) { }
 
   ngOnInit() {
-    this.route.url.subscribe(data => this.claimId = data[data.length - 1].path);
+    this.route.url.subscribe(data => {
+      this.claimId = data[data.length - 1].path;
+      this.documentService.getDocuments(this.claimId).subscribe(
+        documentData => {
+          this.readyDocuments = documentData
+          console.log(documentData)
+      })
+    });
     this.claimService.getClaimDetail(this.claimId).subscribe(
       data => {
         this.claimDetails = {
@@ -66,7 +75,15 @@ export class ClaimDetailsComponent implements OnInit {
   }
 
   createDocuments() {
-    console.log('Generating documents');
+    this.documentService.generateDocuments(this.claimId).subscribe(
+      data => console.log(data)
+    )
+  }
+
+  getDocument(filename) {
+    this.documentService.getDocument(filename).subscribe(
+      data => console.log(data)
+    )
   }
 
 }

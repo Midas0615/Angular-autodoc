@@ -10,7 +10,8 @@ import {
   JwtService,
   ProfileService,
   UserService,
-  ClaimService
+  ClaimService,
+  DocumentService
 } from './services';
 
 @NgModule({
@@ -25,7 +26,8 @@ import {
     ProfileService,
     UserService,
     ClaimService,
-    LprGuard
+    LprGuard,
+    DocumentService
   ],
   declarations: []
 })

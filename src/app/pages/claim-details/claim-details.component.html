@@ -14,6 +14,12 @@
     <p>Источник финансирования: {{ claimDetails.financial_source }}</p>
     <p>Транспорт: {{ claimDetails.transport }}</p>
     <p>Зав. кафедрой: {{ claimDetails.head_of_department }}</p>
+    <div *ngIf="readyDocuments">
+      <p>Готовые документы</p>
+      <p *ngFor="let document of readyDocuments">
+        <a href="javascript:void(0)" (click)="getDocument(document.name)">{{ document.name }}</a>
+      </p>
+    </div>
   </mat-card-content>
   <mat-card-actions>
     <a routerLink="/main"><mat-icon>arrow_back</mat-icon></a>
