@@ -10,3 +10,6 @@ form {
     width: 100%;
 }
 
+.error-messages {
+    color: #B85C5C !important;
+    font-weight: bold; }

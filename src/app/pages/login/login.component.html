@@ -3,14 +3,24 @@
       Войти
     </mat-card-title>
     <mat-card-content>
+      <app-list-errors [errors]="errors"></app-list-errors>
       <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
         <mat-form-field>
-          <input matInput placeholder="Email адрес" formControlName="email">
+          <input matInput placeholder="Email адрес" formControlName="email" type="email" email>
+          <mat-error *ngIf="loginForm.controls.email.hasError('required')">
+              Поле Email не должно быть пустым
+          </mat-error>
+          <mat-error *ngIf="loginForm.controls.email.hasError('email')">
+              Введите валидный email
+          </mat-error>
         </mat-form-field>
         <mat-form-field>
           <input matInput type="password" placeholder="Пароль" formControlName="password">
+          <mat-error *ngIf="loginForm.controls.password.hasError('required')">
+              Поле Пароль не должно быть пустым
+          </mat-error>
         </mat-form-field>
-        <button mat-button type="submit">Войти</button>
+        <button mat-button type="submit" [disabled]="!loginForm.valid">Войти</button>
       </form>
     </mat-card-content>
 </mat-card>

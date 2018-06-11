@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MdModule } from './md/md.module';
+import { ListErrorsComponent } from './list-errors.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,9 @@ import { MdModule } from './md/md.module';
     BrowserAnimationsModule,
     MdModule
   ],
+  declarations: [
+    ListErrorsComponent
+  ],
   exports: [
     CommonModule,
     FormsModule,
@@ -23,7 +27,8 @@ import { MdModule } from './md/md.module';
     HttpClientModule,
     RouterModule,
     BrowserAnimationsModule,
-    MdModule
+    MdModule,
+    ListErrorsComponent
   ]
 })
 export class SharedModule {}

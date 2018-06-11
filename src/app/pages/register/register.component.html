@@ -34,7 +34,7 @@
             </mat-option>
           </mat-select>
         </mat-form-field>
-        <button mat-button type="submit">Зарегистрироваться</button>
+        <button mat-button type="submit" [disabled]="!registerForm.valid">Зарегистрироваться</button>
       </form>
     </mat-card-content>
 </mat-card>
