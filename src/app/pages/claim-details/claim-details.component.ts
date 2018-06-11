@@ -82,7 +82,10 @@ export class ClaimDetailsComponent implements OnInit {
 
   getDocument(filename) {
     this.documentService.getDocument(filename).subscribe(
-      data => console.log(data)
+      data => {
+        const url = window.URL.createObjectURL(data)
+        window.open(url)
+      }
     )
   }
 
