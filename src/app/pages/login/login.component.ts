@@ -33,21 +33,15 @@ export class LoginComponent implements OnInit {
   submitForm() {
     this.isSubmitting = true;
     const credentials = this.loginForm.value;
-    // this.userService
-    // .login(credentials)
-    // .subscribe(
-    //   data => {
-    //     console.log(data)
-    //     this.router.navigateByUrl('/main')
-    //   },
-    //   err => {
-    //     console.log(err)
-    //     this.isSubmitting = false;
-    //   }
-    // );
-    this.apiService.post('/users/login', credentials).subscribe(
-      data => console.log(data),
-      error => this.errors = error.error
-    )
+    this.userService
+    .login(credentials)
+    .subscribe(
+      data => {
+        this.router.navigateByUrl('/main')
+      },
+      error => {
+        this.errors = error.error;
+      }
+    );
   }
 }
