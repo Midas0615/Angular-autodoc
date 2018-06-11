@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MdModule } from './md/md.module';
 import { ListErrorsComponent } from './list-errors.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { ListErrorsComponent } from './list-errors.component';
     HttpClientModule,
     RouterModule,
     BrowserAnimationsModule,
-    MdModule
+    MdModule,
+    ToastrModule.forRoot()
   ],
   declarations: [
     ListErrorsComponent
@@ -28,7 +30,8 @@ import { ListErrorsComponent } from './list-errors.component';
     RouterModule,
     BrowserAnimationsModule,
     MdModule,
-    ListErrorsComponent
+    ListErrorsComponent,
+    ToastrModule
   ]
 })
 export class SharedModule {}

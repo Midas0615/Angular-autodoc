@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ClaimService } from '../../core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-claim-new',
@@ -16,7 +17,8 @@ export class ClaimNewComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private claimService: ClaimService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit() {
@@ -44,12 +46,18 @@ export class ClaimNewComponent implements OnInit {
       this.secondFormGroup.value,
       this.thirdFormGroup.value
     );
-
+    this.showSuccess()
     claimDetails.startDate = claimDetails.startDate._d.getTime() / 1000;
     claimDetails.finishDate = claimDetails.finishDate._d.getTime() / 1000;
     this.claimService.createClaim(claimDetails).subscribe(
       () => this.router.navigateByUrl('/main')
     )
+  }
+
+  showSuccess() {
+    this.toastr.success('Новая заявка создана', '', {
+      timeOut: 60 * 1000
+    });
   }
 
 }
