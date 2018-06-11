@@ -55,9 +55,7 @@ export class ClaimNewComponent implements OnInit {
   }
 
   showSuccess() {
-    this.toastr.success('Новая заявка создана', '', {
-      timeOut: 60 * 1000
-    });
+    this.toastr.success('Новая заявка создана');
   }
 
 }

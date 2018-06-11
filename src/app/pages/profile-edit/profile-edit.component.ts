@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User, Profile, UserService, ProfileService } from '../../core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-profile-edit',
@@ -15,7 +16,7 @@ export class ProfileEditComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    // private http: HttpClient
+    private toastr: ToastrService,
     private profileService: ProfileService,
     private router: Router,
   ) {
@@ -56,7 +57,10 @@ export class ProfileEditComponent implements OnInit {
 
   submitForm() {
     this.profileService.setProfile(this.currentUser.id, this.profileForm.value).subscribe(
-      data => this.router.navigateByUrl('/profile/view')
+      data => {
+        this.toastr.success('Профиль обновлен');
+        this.router.navigateByUrl('/profile/view');
+      }
     );
   }
 

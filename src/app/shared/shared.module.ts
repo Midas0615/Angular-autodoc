@@ -17,7 +17,9 @@ import { ToastrModule } from 'ngx-toastr';
     RouterModule,
     BrowserAnimationsModule,
     MdModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot({
+      timeOut: 30000
+    })
   ],
   declarations: [
     ListErrorsComponent
