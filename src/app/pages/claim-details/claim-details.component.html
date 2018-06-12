@@ -36,7 +36,8 @@
       Отклонить
     </button>
     <button mat-button *ngIf="currentUser.role === 'secretary'" (click)="createDocuments()">
-      Сгенерировать документы
+      <span *ngIf="readyDocuments.length == 0">Сгенерировать документы</span>
+      <span *ngIf="readyDocuments.length != 0">Сгенерировать документы заново</span>
     </button>
   </mat-card-actions>
 
