@@ -27,7 +27,6 @@ export class ClaimDetailsComponent implements OnInit {
       this.claimId = data[data.length - 1].path;
       this.documentService.getDocuments(this.claimId).subscribe(
         documentData => {
-          console.log(documentData.length)
           this.readyDocuments = documentData;
       })
     });
@@ -61,7 +60,9 @@ export class ClaimDetailsComponent implements OnInit {
 
   createDocuments() {
     this.documentService.generateDocuments(this.claimId).subscribe(
-      data => console.log(data)
+      (data) => {
+        this.readyDocuments = data
+      }
     )
   }
 
