@@ -28,5 +28,7 @@
         
         
     </mat-card-content>
-    <mat-card-actions><a mat-button routerLink="/claim">Оформить новую</a></mat-card-actions>
+    <mat-card-actions *ngIf="role == 'student' || role == 'collaborator'">
+        <a mat-button routerLink="/claim">Оформить новую</a>
+    </mat-card-actions>
 </mat-card>

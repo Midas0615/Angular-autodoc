@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ClaimService } from '../../core';
+import { ClaimService, UserService } from '../../core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { DataSource } from '@angular/cdk/table';
 
@@ -11,11 +11,17 @@ import { DataSource } from '@angular/cdk/table';
 export class MainComponent implements OnInit {
   displayedColumns = ['position', 'created_at', 'status', 'details'];
   dataSource = this.claimService.getClaims();
+  role = '';
+
   constructor(
-    private claimService: ClaimService
+    private claimService: ClaimService,
+    private userService: UserService
   ) { }
 
   ngOnInit() {
+    this.userService.currentUser.subscribe(user => {
+      this.role = user.role
+    })
   }
 
 }
