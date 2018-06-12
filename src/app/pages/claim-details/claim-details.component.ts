@@ -13,7 +13,7 @@ export class ClaimDetailsComponent implements OnInit {
 
   claim: any;
   currentUser: User;
-  readyDocuments: any[];
+  readyDocuments = [];
 
   constructor(
     private claimService: ClaimService,
