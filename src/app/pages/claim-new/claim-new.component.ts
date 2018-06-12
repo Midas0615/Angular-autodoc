@@ -30,35 +30,35 @@ export class ClaimNewComponent implements OnInit {
         if (this.role === 'student') {
           this.secondFormGroup = this.fb.group({
             term: ['', Validators.required],
-            startDate: ['', Validators.required],
-            finishDate: ['', Validators.required],
+            start_date: ['', Validators.required],
+            finish_date: ['', Validators.required],
           });
           this.thirdFormGroup = this.fb.group({
             goal: ['', Validators.required],
-            financialSource: ['', Validators.required],
+            financial_source: ['', Validators.required],
             transport: ['', Validators.required],
-            headOfDepartment: ['', Validators.required]
+            head_of_department: ['', Validators.required]
           });
         } else {
           this.secondFormGroup = this.fb.group({
             term: ['', Validators.required],
-            termWithoutTransfer: ['', Validators.required],
-            startDate: ['', Validators.required],
-            finishDate: ['', Validators.required],
+            term_without_transfer: ['', Validators.required],
+            start_date: ['', Validators.required],
+            finish_date: ['', Validators.required],
           });
           this.thirdFormGroup = this.fb.group({
             goal: ['', Validators.required],
-            financialSource: ['', Validators.required],
-            payerOrganization: ['', Validators.required],
+            financial_source: ['', Validators.required],
+            payer_organization: ['', Validators.required],
             reason: ['', Validators.required]
           });
         }
       }
     )
     this.firstFormGroup = this.fb.group({
-      dstCountry: ['', Validators.required],
-      dstCity: ['', Validators.required],
-      dstOrganization: ['', Validators.required],
+      dst_country: ['', Validators.required],
+      dst_city: ['', Validators.required],
+      dst_organization: ['', Validators.required],
     });
   }
 
@@ -68,11 +68,14 @@ export class ClaimNewComponent implements OnInit {
       this.secondFormGroup.value,
       this.thirdFormGroup.value
     );
-    this.showSuccess()
-    claimDetails.startDate = claimDetails.startDate._d.getTime() / 1000;
-    claimDetails.finishDate = claimDetails.finishDate._d.getTime() / 1000;
+    console.log(claimDetails.start_date)
+    claimDetails.start_date = claimDetails.start_date._d
+    claimDetails.finish_date = claimDetails.finish_date._d
     this.claimService.createClaim(claimDetails).subscribe(
-      () => this.router.navigateByUrl('/main')
+      () => {
+        this.router.navigateByUrl('/main')
+        this.showSuccess()
+      }
     )
   }
 
