@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ClaimService, UserService, User, DocumentService } from '../../core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-claim-details',
@@ -19,7 +20,8 @@ export class ClaimDetailsComponent implements OnInit {
     private userService: UserService,
     private documentService: DocumentService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit() {
@@ -46,6 +48,7 @@ export class ClaimDetailsComponent implements OnInit {
     this.claimService.acceptClaim(this.claimId).subscribe(
       data => {
         this.claim.status = 'accepted';
+        this.toastr.success('Заявка одобрена');
       }
     )
   }
@@ -54,6 +57,7 @@ export class ClaimDetailsComponent implements OnInit {
     this.claimService.rejectClaim(this.claimId).subscribe(
       data => {
         this.claim.status = 'rejected';
+        this.toastr.success('Заявка отклонена');
       }
     )
   }
@@ -62,6 +66,7 @@ export class ClaimDetailsComponent implements OnInit {
     this.documentService.generateDocuments(this.claimId).subscribe(
       (data) => {
         this.readyDocuments = data
+        this.toastr.success('Документы сгенерированы');
       }
     )
   }
