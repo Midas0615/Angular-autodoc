@@ -1,27 +1,27 @@
 <mat-card>
   <mat-card-title>Заявка #{{ claimId }}</mat-card-title>
   <mat-card-content *ngIf="claim">
-    <p>Создана: {{ claim.created_at | date:'dd.MM.yyyy' }}</p>
-    <p>Запросил: {{ claim.request_person.email }}</p>
-    <p>Статус: {{ claim.status | status }}</p>
-    <p>Пункт назначения:</p>
-    <p>Страна, нас. пункт: {{ claim.claim_data.dst_country }}, {{ claim.claim_data.dst_city }}</p>
-    <p>Организация: {{ claim.claim_data.dst_organization }}</p>
-    <p>Цель: {{ claim.claim_data.goal }}</p>
-    <p>Дата начала: {{ claim.claim_data.start_date | date:'dd.MM.yyyy' }}</p>
-    <p>Дата окончания: {{ claim.claim_data.finish_date | date:'dd.MM.yyyy' }}</p>
-    <p>Срок: {{ claim.claim_data.term }}</p>
-    <p>Источник финансирования: {{ claim.claim_data.financial_source }}</p>
+    <p><strong>Создана:</strong> {{ claim.created_at | date:'dd.MM.yyyy' }}</p>
+    <p><strong>Запросил:</strong> {{ claim.request_person.email }}</p>
+    <p><strong>Статус:</strong> {{ claim.status | status }}</p>
+    <p><strong>Пункт назначения:</strong></p>
+    <p><strong>Страна, нас. пункт:</strong> {{ claim.claim_data.dst_country }}, {{ claim.claim_data.dst_city }}</p>
+    <p><strong>Организация:</strong> {{ claim.claim_data.dst_organization }}</p>
+    <p><strong>Цель:</strong> {{ claim.claim_data.goal }}</p>
+    <p><strong>Дата начала:</strong> {{ claim.claim_data.start_date | date:'dd.MM.yyyy' }}</p>
+    <p><strong>Дата окончания:</strong> {{ claim.claim_data.finish_date | date:'dd.MM.yyyy' }}</p>
+    <p><strong>Срок:</strong> {{ claim.claim_data.term }}</p>
+    <p><strong>Источник финансирования:</strong> {{ claim.claim_data.financial_source }}</p>
     <div *ngIf="claim.request_person.role=='student'">
-      <p>Транспорт: {{ claim.claim_data.transport }}</p>
-      <p>Зав. кафедрой: {{ claim.claim_data.head_of_department }}</p>
+      <p><strong>Транспорт:</strong> {{ claim.claim_data.transport }}</p>
+      <p><strong>Зав. кафедрой:</strong> {{ claim.claim_data.head_of_department }}</p>
     </div>
     <div *ngIf="claim.request_person.role=='collaborator'">
-      <p>Организация-плательщик: {{ claim.claim_data.payer_organization }}</p>
-      <p>Основание: {{ claim.claim_data.reason }}</p>
+      <p><strong>Организация-плательщик:</strong> {{ claim.claim_data.payer_organization }}</p>
+      <p><strong>Основание:</strong> {{ claim.claim_data.reason }}</p>
     </div>
     <div *ngIf="readyDocuments.length != 0">
-      <p>Готовые документы</p>
+      <p><strong>Готовые документы</strong></p>
       <p *ngFor="let document of readyDocuments">
         <a href="javascript:void(0)" (click)="getDocument(document.name)">{{ document.name }}</a>
       </p>
