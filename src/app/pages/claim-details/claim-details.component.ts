@@ -27,7 +27,8 @@ export class ClaimDetailsComponent implements OnInit {
       this.claimId = data[data.length - 1].path;
       this.documentService.getDocuments(this.claimId).subscribe(
         documentData => {
-          this.readyDocuments = documentData
+          console.log(documentData.length)
+          this.readyDocuments = documentData;
       })
     });
     this.claimService.getClaimDetail(this.claimId).subscribe(
