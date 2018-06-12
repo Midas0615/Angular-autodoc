@@ -23,6 +23,9 @@
       <mat-form-field>
         <input matInput placeholder="Срок" formControlName="term" required>
       </mat-form-field>
+      <mat-form-field *ngIf="role=='collaborator'">
+        <input matInput placeholder="Срок, не считая времени нахождения в пути" formControlName="termWithoutTransfer" required>
+      </mat-form-field>
       <mat-form-field>
           <input matInput [matDatepicker]="startDatePicker" placeholder="Дата начала" formControlName="startDate">
           <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
@@ -50,10 +53,16 @@
       <mat-form-field>
         <textarea matInput placeholder="Источник финансирования" formControlName="financialSource" required></textarea>
       </mat-form-field>
-      <mat-form-field>
+      <mat-form-field *ngIf="role=='collaborator'">
+        <textarea matInput placeholder="Организация-плательщик" formControlName="payerOrganization" required></textarea>
+      </mat-form-field>
+      <mat-form-field *ngIf="role=='collaborator'">
+        <textarea matInput placeholder="Основание" formControlName="reason" required></textarea>
+      </mat-form-field>
+      <mat-form-field *ngIf="role=='student'">
         <input matInput placeholder="Транспорт" formControlName="transport" required>
       </mat-form-field>
-      <mat-form-field>
+      <mat-form-field *ngIf="role=='student'">
         <input matInput placeholder="Заведующий кафедрой" formControlName="headOfDepartment" required>
       </mat-form-field>
       <div>

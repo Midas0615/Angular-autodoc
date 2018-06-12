@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ClaimService } from '../../core';
+import { ClaimService, UserService } from '../../core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
@@ -13,30 +13,52 @@ export class ClaimNewComponent implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
+  role = '';
 
   constructor(
     private fb: FormBuilder,
     private claimService: ClaimService,
+    private userService: UserService,
     private router: Router,
     private toastr: ToastrService
   ) { }
 
   ngOnInit() {
+    this.userService.currentUser.subscribe(
+      (data) => {
+        this.role = data.role
+        if (this.role === 'student') {
+          this.secondFormGroup = this.fb.group({
+            term: ['', Validators.required],
+            startDate: ['', Validators.required],
+            finishDate: ['', Validators.required],
+          });
+          this.thirdFormGroup = this.fb.group({
+            goal: ['', Validators.required],
+            financialSource: ['', Validators.required],
+            transport: ['', Validators.required],
+            headOfDepartment: ['', Validators.required]
+          });
+        } else {
+          this.secondFormGroup = this.fb.group({
+            term: ['', Validators.required],
+            termWithoutTransfer: ['', Validators.required],
+            startDate: ['', Validators.required],
+            finishDate: ['', Validators.required],
+          });
+          this.thirdFormGroup = this.fb.group({
+            goal: ['', Validators.required],
+            financialSource: ['', Validators.required],
+            payerOrganization: ['', Validators.required],
+            reason: ['', Validators.required]
+          });
+        }
+      }
+    )
     this.firstFormGroup = this.fb.group({
       dstCountry: ['', Validators.required],
       dstCity: ['', Validators.required],
       dstOrganization: ['', Validators.required],
-    });
-    this.secondFormGroup = this.fb.group({
-      term: ['', Validators.required],
-      startDate: ['', Validators.required],
-      finishDate: ['', Validators.required],
-    });
-    this.thirdFormGroup = this.fb.group({
-      goal: ['', Validators.required],
-      financialSource: ['', Validators.required],
-      transport: ['', Validators.required],
-      headOfDepartment: ['', Validators.required]
     });
   }
 
