@@ -9,7 +9,7 @@
         
             <ng-container cdkColumnDef="created_at">
             <th cdk-header-cell *cdkHeaderCellDef> Дата создания </th>
-            <td cdk-cell *cdkCellDef="let element"> {{element.created_at}} </td>
+            <td cdk-cell *cdkCellDef="let element"> {{element.created_at | date:'dd.MM.yyyy HH:mm'}} </td>
             </ng-container>
         
             <ng-container cdkColumnDef="status">
