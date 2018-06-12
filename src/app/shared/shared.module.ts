@@ -8,6 +8,7 @@ import { MdModule } from './md/md.module';
 import { ListErrorsComponent } from './list-errors.component';
 import { ToastrModule } from 'ngx-toastr';
 import { ClaimStatusPipe } from './claim-status.pipe';
+import { UserRolePipe } from './user-role.pipe';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import { ClaimStatusPipe } from './claim-status.pipe';
   ],
   declarations: [
     ListErrorsComponent,
-    ClaimStatusPipe
+    ClaimStatusPipe,
+    UserRolePipe
   ],
   exports: [
     CommonModule,
@@ -36,7 +38,8 @@ import { ClaimStatusPipe } from './claim-status.pipe';
     MdModule,
     ListErrorsComponent,
     ToastrModule,
-    ClaimStatusPipe
+    ClaimStatusPipe,
+    UserRolePipe
   ]
 })
 export class SharedModule {}

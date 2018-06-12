@@ -1,5 +1,5 @@
 <mat-toolbar>
-  <span *ngIf="isAuthenticated" class="toolbar-role">Ваш статус: {{ currentUser.role }}</span>
+  <span *ngIf="isAuthenticated" class="toolbar-role">Ваш статус: {{ currentUser.role | userRole }}</span>
   <nav mat-tab-nav-bar>
     <a mat-tab-link routerLink="/main" *ngIf="isAuthenticated">Главная</a>
     <a mat-tab-link routerLink="/profile/view" *ngIf="isAuthenticated">Профиль</a>
