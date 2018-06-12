@@ -1,5 +1,5 @@
 mat-toolbar {
-    background-color: #616161;
+    background-color: #ffffff;
 }
 
 .toolbar-role {
@@ -12,5 +12,5 @@ nav {
 }
 
 nav a {
-    color: white;
+    color: black;
 }

@@ -1,10 +1,15 @@
 <mat-toolbar>
   <span *ngIf="isAuthenticated" class="toolbar-role">Ваш статус: {{ currentUser.role | userRole }}</span>
   <nav mat-tab-nav-bar>
-    <a mat-tab-link routerLink="/main" *ngIf="isAuthenticated">Главная</a>
-    <a mat-tab-link routerLink="/profile/view" *ngIf="isAuthenticated">Профиль</a>
-    <a mat-tab-link routerLink="/login" *ngIf="!isAuthenticated">Войти</a>
-    <a mat-tab-link routerLink="/register" *ngIf="!isAuthenticated">Зарегистрироваться</a>
-    <a mat-tab-link (click)="logout()" *ngIf="isAuthenticated" href="javascript:void(0)">Выйти</a>
+    <a mat-tab-link routerLink="/main" *ngIf="isAuthenticated" routerLinkActive #rla="routerLinkActive"
+    [active]="rla.isActive">Главная</a>
+    <a mat-tab-link routerLink="/profile/view" *ngIf="isAuthenticated" routerLinkActive #rla="routerLinkActive"
+    [active]="rla.isActive">Профиль</a>
+    <a mat-tab-link routerLink="/login" *ngIf="!isAuthenticated" routerLinkActive #rla="routerLinkActive"
+    [active]="rla.isActive">Войти</a>
+    <a mat-tab-link routerLink="/register" *ngIf="!isAuthenticated" routerLinkActive #rla="routerLinkActive"
+    [active]="rla.isActive">Зарегистрироваться</a>
+    <a mat-tab-link (click)="logout()" *ngIf="isAuthenticated" href="javascript:void(0)" routerLinkActive #rla="routerLinkActive"
+    [active]="rla.isActive">Выйти</a>
   </nav>
 </mat-toolbar>
