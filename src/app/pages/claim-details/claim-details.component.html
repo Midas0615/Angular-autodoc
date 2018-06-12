@@ -1,20 +1,26 @@
 <mat-card>
   <mat-card-title>Заявка #{{ claimId }}</mat-card-title>
-  <mat-card-content *ngIf="claimDetails">
-    <p>Создана: {{ claimDetails.created_at | date:'dd.MM.yyyy' }}</p>
-    <p>Запросил: {{ claimDetails.request_person_id }}</p>
-    <p>Статус: {{ claimDetails.status | status }}</p>
+  <mat-card-content *ngIf="claim">
+    <p>Создана: {{ claim.created_at | date:'dd.MM.yyyy' }}</p>
+    <p>Запросил: {{ claim.request_person.email }}</p>
+    <p>Статус: {{ claim.status | status }}</p>
     <p>Пункт назначения:</p>
-    <p>Страна, нас. пункт: {{ claimDetails.dst_country }}, {{ claimDetails.dst_city }}</p>
-    <p>Организация: {{ claimDetails.dst_organization }}</p>
-    <p>Цель: {{ claimDetails.goal }}</p>
-    <p>Дата начала: {{ claimDetails.start_date | date:'dd.MM.yyyy' }}</p>
-    <p>Дата окончания: {{ claimDetails.finish_date | date:'dd.MM.yyyy' }}</p>
-    <p>Срок: {{ claimDetails.term }}</p>
-    <p>Источник финансирования: {{ claimDetails.financial_source }}</p>
-    <p>Транспорт: {{ claimDetails.transport }}</p>
-    <p>Зав. кафедрой: {{ claimDetails.head_of_department }}</p>
-    <div *ngIf="readyDocuments">
+    <p>Страна, нас. пункт: {{ claim.claim_data.dst_country }}, {{ claim.dst_city }}</p>
+    <p>Организация: {{ claim.claim_data.dst_organization }}</p>
+    <p>Цель: {{ claim.claim_data.goal }}</p>
+    <p>Дата начала: {{ claim.claim_data.start_date | date:'dd.MM.yyyy' }}</p>
+    <p>Дата окончания: {{ claim.claim_data.finish_date | date:'dd.MM.yyyy' }}</p>
+    <p>Срок: {{ claim.claim_data.term }}</p>
+    <p>Источник финансирования: {{ claim.claim_data.financial_source }}</p>
+    <div *ngIf="claim.request_person.role=='student'">
+      <p>Транспорт: {{ claim.claim_data.transport }}</p>
+      <p>Зав. кафедрой: {{ claim.claim_data.head_of_department }}</p>
+    </div>
+    <div *ngIf="claim.request_person.role=='collaborator'">
+      <p>Организация-плательщик: {{ claim.claim_data.payer_organization }}</p>
+      <p>Основание: {{ claim.claim_data.reason }}</p>
+    </div>
+    <div *ngIf="readyDocuments == []">
       <p>Готовые документы</p>
       <p *ngFor="let document of readyDocuments">
         <a href="javascript:void(0)" (click)="getDocument(document.name)">{{ document.name }}</a>
