@@ -75,20 +75,3 @@ export class ClaimDetailsComponent implements OnInit {
   }
 
 }
-
-interface ClaimDetails {
-  id: string;
-  created_at: number;
-  request_person: Object;
-  status: string;
-  dst_city: string;
-  dst_country: string;
-  dst_organization: string;
-  goal: string;
-  start_date: number;
-  finish_date: number;
-  term: number;
-  financial_source: string;
-  transport: string;
-  head_of_department: string;
-}
