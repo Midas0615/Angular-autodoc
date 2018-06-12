@@ -5,7 +5,7 @@
     <p>Запросил: {{ claim.request_person.email }}</p>
     <p>Статус: {{ claim.status | status }}</p>
     <p>Пункт назначения:</p>
-    <p>Страна, нас. пункт: {{ claim.claim_data.dst_country }}, {{ claim.dst_city }}</p>
+    <p>Страна, нас. пункт: {{ claim.claim_data.dst_country }}, {{ claim.claim_data.dst_city }}</p>
     <p>Организация: {{ claim.claim_data.dst_organization }}</p>
     <p>Цель: {{ claim.claim_data.goal }}</p>
     <p>Дата начала: {{ claim.claim_data.start_date | date:'dd.MM.yyyy' }}</p>
