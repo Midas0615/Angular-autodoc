@@ -1,9 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'status'
+  name: 'claim_status'
 })
-export class StatusPipe implements PipeTransform {
+export class ClaimStatusPipe implements PipeTransform {
 
   transform(value: any, args?: any): any {
     if (value === 'notExamined') {

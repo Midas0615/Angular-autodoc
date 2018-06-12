@@ -7,6 +7,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MdModule } from './md/md.module';
 import { ListErrorsComponent } from './list-errors.component';
 import { ToastrModule } from 'ngx-toastr';
+import { ClaimStatusPipe } from './claim-status.pipe';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { ToastrModule } from 'ngx-toastr';
     })
   ],
   declarations: [
-    ListErrorsComponent
+    ListErrorsComponent,
+    ClaimStatusPipe
   ],
   exports: [
     CommonModule,
@@ -33,7 +35,8 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule,
     MdModule,
     ListErrorsComponent,
-    ToastrModule
+    ToastrModule,
+    ClaimStatusPipe
   ]
 })
 export class SharedModule {}

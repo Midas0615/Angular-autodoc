@@ -3,7 +3,7 @@
   <mat-card-content *ngIf="claim">
     <p><strong>Создана:</strong> {{ claim.created_at | date:'dd.MM.yyyy' }}</p>
     <p><strong>Запросил:</strong> {{ claim.request_person.email }}</p>
-    <p><strong>Статус:</strong> {{ claim.status | status }}</p>
+    <p><strong>Статус:</strong> {{ claim.status | claim_status }}</p>
     <p><strong>Пункт назначения:</strong></p>
     <p><strong>Страна, нас. пункт:</strong> {{ claim.claim_data.dst_country }}, {{ claim.claim_data.dst_city }}</p>
     <p><strong>Организация:</strong> {{ claim.claim_data.dst_organization }}</p>
