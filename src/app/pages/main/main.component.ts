@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ClaimService, UserService } from '../../core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { DataSource } from '@angular/cdk/table';
+import {MatSort, MatTableDataSource} from '@angular/material';
 
 @Component({
   selector: 'app-main',
@@ -10,8 +11,10 @@ import { DataSource } from '@angular/cdk/table';
 })
 export class MainComponent implements OnInit {
   displayedColumns = ['position', 'created_at', 'status', 'details'];
-  dataSource = this.claimService.getClaims();
+  dataSource = undefined;
   role = '';
+
+  @ViewChild(MatSort) sort: MatSort;
 
   constructor(
     private claimService: ClaimService,
@@ -21,7 +24,13 @@ export class MainComponent implements OnInit {
   ngOnInit() {
     this.userService.currentUser.subscribe(user => {
       this.role = user.role
-    })
+    });
+    this.claimService.getClaims().subscribe(
+      (data: ClaimElement[]) => {
+        this.dataSource = new MatTableDataSource(data);
+        this.dataSource.sort = this.sort;
+      }
+    );
   }
 
 }

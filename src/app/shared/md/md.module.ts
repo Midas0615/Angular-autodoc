@@ -7,7 +7,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatCardModule} from '@angular/material/card';
 import {MatSelectModule} from '@angular/material/select';
-import {CdkTableModule} from '@angular/cdk/table';
+import {MatTableModule} from '@angular/material/table';
+import {MatSortModule} from '@angular/material/sort';
 import {MatIconModule} from '@angular/material/icon';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatDatepickerModule} from '@angular/material/datepicker';
@@ -25,7 +26,8 @@ import {MatMenuModule} from '@angular/material/menu';
     MatTabsModule,
     MatCardModule,
     MatSelectModule,
-    CdkTableModule,
+    MatTableModule,
+    MatSortModule,
     MatIconModule,
     MatStepperModule,
     MatDatepickerModule,
@@ -41,7 +43,8 @@ import {MatMenuModule} from '@angular/material/menu';
     MatTabsModule,
     MatCardModule,
     MatSelectModule,
-    CdkTableModule,
+    MatTableModule,
+    MatSortModule,
     MatIconModule,
     MatStepperModule,
     MatDatepickerModule,
