@@ -70,3 +70,7 @@ nav ul a:hover {
 .mat-menu-item {
     color: white;
 }
+
+.toolbar-role {
+    margin-left: 10px;
+}
