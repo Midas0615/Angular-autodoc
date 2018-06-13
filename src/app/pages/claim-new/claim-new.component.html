@@ -71,20 +71,11 @@
           Поле не должно быть пустым
         </mat-error>
       </mat-form-field>
-      <mat-form-field>
-        <textarea matInput placeholder="Источник финансирования" formControlName="financial_source" required></textarea>
-      </mat-form-field>
-      <mat-form-field *ngIf="role=='collaborator'">
-        <textarea matInput placeholder="Организация-плательщик" formControlName="payer_organization" required></textarea>
-      </mat-form-field>
       <mat-form-field *ngIf="role=='collaborator'">
         <textarea matInput placeholder="Основание" formControlName="reason" required></textarea>
         <mat-error *ngIf="thirdFormGroup.controls.reason.hasError('required')">
           Поле не должно быть пустым
         </mat-error>
-      </mat-form-field>
-      <mat-form-field *ngIf="role=='student'">
-        <input matInput placeholder="Транспорт" formControlName="transport" required>
       </mat-form-field>
       <div>
         <button mat-button matStepperPrevious>Назад</button>

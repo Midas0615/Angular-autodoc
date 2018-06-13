@@ -35,8 +35,6 @@ export class ClaimNewComponent implements OnInit {
           });
           this.thirdFormGroup = this.fb.group({
             goal: ['', Validators.required],
-            financial_source: ['', Validators.required],
-            transport: ['', Validators.required],
           });
         } else {
           this.secondFormGroup = this.fb.group({
@@ -47,8 +45,6 @@ export class ClaimNewComponent implements OnInit {
           });
           this.thirdFormGroup = this.fb.group({
             goal: ['', Validators.required],
-            financial_source: ['', Validators.required],
-            payer_organization: ['', Validators.required],
             reason: ['', Validators.required]
           });
         }
