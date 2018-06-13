@@ -9,7 +9,8 @@
 
   <ul class="right" *ngIf="isAuthenticated">
     <li class="nav-item"><a class="nav-link" routerLink="/main">Главная</a></li>
-    <button mat-button [matMenuTriggerFor]="menu">Пользователь</button>
+    <li class="nav-item"><a class="nav-link" [matMenuTriggerFor]="menu" routerLink="/main">Пользователь</a></li>
+    <!-- <button mat-button [matMenuTriggerFor]="menu">Пользователь</button> -->
     <mat-menu #menu="matMenu" yPosition="below" [overlapTrigger]="false">
       <a mat-menu-item routerLink="/profile/view">Профиль</a>
       <a mat-menu-item href="javascript:void(0)" (click)="logout()">Выйти</a>

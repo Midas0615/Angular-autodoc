@@ -58,3 +58,15 @@ nav ul a:hover {
 .right {
     float: right !important;
 }
+
+.mat-menu-panel {
+    width: 130px !important;
+}
+
+.mat-menu-content {
+    background-color: #ee6e73 !important;
+}
+
+.mat-menu-item {
+    color: white;
+}
