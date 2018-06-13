@@ -17,7 +17,6 @@
     <p><strong>Источник финансирования:</strong> {{ claim.claim_data.financial_source }}</p>
     <div *ngIf="claim.request_person.role=='student'">
       <p><strong>Транспорт:</strong> {{ claim.claim_data.transport }}</p>
-      <p><strong>Зав. кафедрой:</strong> {{ claim.claim_data.head_of_department }}</p>
     </div>
     <div *ngIf="claim.request_person.role=='collaborator'">
       <p><strong>Организация-плательщик:</strong> {{ claim.claim_data.payer_organization }}</p>

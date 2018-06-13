@@ -37,7 +37,6 @@ export class ClaimNewComponent implements OnInit {
             goal: ['', Validators.required],
             financial_source: ['', Validators.required],
             transport: ['', Validators.required],
-            head_of_department: ['', Validators.required]
           });
         } else {
           this.secondFormGroup = this.fb.group({

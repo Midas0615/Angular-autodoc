@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService, User, Profile, ProfileService, ApiService } from '../../core';
-import { map } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-profile-view',

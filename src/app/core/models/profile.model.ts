@@ -7,5 +7,6 @@ export interface Profile {
     structural_unit: string,
     course: string,
     group: string,
+    head_of_department: string;
     email: string
 }
