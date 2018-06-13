@@ -29,9 +29,6 @@
   <mat-step [stepControl]="secondFormGroup">
     <form [formGroup]="secondFormGroup">
       <ng-template matStepLabel>Информация о датах</ng-template>
-      <mat-form-field>
-        <input matInput placeholder="Срок" formControlName="term" required>
-      </mat-form-field>
       <mat-form-field *ngIf="role=='collaborator'">
         <input matInput placeholder="Срок, не считая времени нахождения в пути" formControlName="term_without_transfer" required>
         <mat-error *ngIf="secondFormGroup.controls.term_without_transfer.hasError('required')">

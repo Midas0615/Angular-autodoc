@@ -29,7 +29,6 @@ export class ClaimNewComponent implements OnInit {
         this.role = data.role
         if (this.role === 'student') {
           this.secondFormGroup = this.fb.group({
-            term: ['', Validators.required],
             start_date: ['', Validators.required],
             finish_date: ['', Validators.required],
           });
@@ -38,7 +37,6 @@ export class ClaimNewComponent implements OnInit {
           });
         } else {
           this.secondFormGroup = this.fb.group({
-            term: ['', Validators.required],
             term_without_transfer: ['', Validators.required],
             start_date: ['', Validators.required],
             finish_date: ['', Validators.required],
