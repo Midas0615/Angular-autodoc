@@ -16,3 +16,15 @@ text-align: left;
 vertical-align: middle;
 border-radius: 2px;
 }
+
+.claim-notexamined {
+  color: #616161;
+}
+
+.claim-accepted {
+  color: red;
+}
+
+.claim-rejected {
+  color: green;
+}
