@@ -10,7 +10,7 @@ import {MatSort, MatTableDataSource} from '@angular/material';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  displayedColumns = ['position', 'created_at', 'status', 'details'];
+  displayedColumns = ['position', 'created_at', 'status'];
   dataSource = undefined;
   role = '';
 
