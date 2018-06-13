@@ -12,6 +12,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatMomentDateModule} from '@angular/material-moment-adapter'
+import {MatMenuModule} from '@angular/material/menu';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ import {MatMomentDateModule} from '@angular/material-moment-adapter'
     MatIconModule,
     MatStepperModule,
     MatDatepickerModule,
-    MatMomentDateModule
+    MatMomentDateModule,
+    MatMenuModule
   ],
   exports: [
     MatListModule,
@@ -42,7 +45,8 @@ import {MatMomentDateModule} from '@angular/material-moment-adapter'
     MatIconModule,
     MatStepperModule,
     MatDatepickerModule,
-    MatMomentDateModule
+    MatMomentDateModule,
+    MatMenuModule
   ],
   declarations: []
 })
