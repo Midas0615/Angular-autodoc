@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  api_url: 'https://autodoc-auditorika.herokuapp.com/api/v1'
+  api_url: 'http://localhost:5000/api/v1'
 };
 
 /*
