@@ -14,12 +14,12 @@
     <p><strong>Дата начала:</strong> {{ claim.claim_data.start_date | date:'dd.MM.yyyy' }}</p>
     <p><strong>Дата окончания:</strong> {{ claim.claim_data.finish_date | date:'dd.MM.yyyy' }}</p>
     <p><strong>Срок:</strong> {{ claim.claim_data.term }}</p>
-    <p><strong>Источник финансирования:</strong> {{ claim.claim_data.financial_source }}</p>
-    <div *ngIf="claim.request_person.role=='student'">
+    <div if="currentUser.role === 'secretary'">
+      <p><strong>Источник финансирования:</strong> {{ claim.claim_data.financial_source }}</p>
       <p><strong>Транспорт:</strong> {{ claim.claim_data.transport }}</p>
+      <p><strong>Организация-плательщик:</strong> {{ claim.claim_data.payer_organization }}</p>
     </div>
     <div *ngIf="claim.request_person.role=='collaborator'">
-      <p><strong>Организация-плательщик:</strong> {{ claim.claim_data.payer_organization }}</p>
       <p><strong>Основание:</strong> {{ claim.claim_data.reason }}</p>
     </div>
     <div *ngIf="readyDocuments.length != 0">
