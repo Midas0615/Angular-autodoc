@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserService, ApiService, Errors } from '../../core';
+import { UserService, Errors } from '../../core';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
@@ -16,8 +15,6 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private apiService: ApiService,
-    private http: HttpClient,
     private router: Router,
     private fb: FormBuilder
   ) {
@@ -26,6 +23,14 @@ export class LoginComponent implements OnInit {
       'password': ['', Validators.required]
     });
   }
+
+  get email() { return this.loginForm.get('email'); }
+
+  get password() { return this.loginForm.get('password'); }
+
+  get requiredPasswordError() { return (this.password.hasError('required') && this.password.touched) || !this.password.pristine }
+
+  get requiredEmailError() { return (this.email.hasError('required') && this.email.touched) || !this.email.pristine }
 
   ngOnInit() {
   }

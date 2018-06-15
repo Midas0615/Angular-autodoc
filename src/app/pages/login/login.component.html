@@ -1,26 +1,33 @@
-<mat-card>
-    <mat-card-title>
-      Войти
-    </mat-card-title>
-    <mat-card-content>
-      <app-list-errors [errors]="errors"></app-list-errors>
-      <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
-        <mat-form-field>
-          <input matInput placeholder="Email адрес" formControlName="email" type="email" email>
-          <mat-error *ngIf="loginForm.controls.email.hasError('required')">
-              Поле Email не должно быть пустым
-          </mat-error>
-          <mat-error *ngIf="loginForm.controls.email.hasError('email')">
-              Введите валидный email
-          </mat-error>
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput type="password" placeholder="Пароль" formControlName="password">
-          <mat-error *ngIf="loginForm.controls.password.hasError('required')">
-              Поле Пароль не должно быть пустым
-          </mat-error>
-        </mat-form-field>
-        <button mat-button type="submit" [disabled]="!loginForm.valid">Войти</button>
-      </form>
-    </mat-card-content>
-</mat-card>
+<section class="section column is-one-third is-offset-one-third">
+  <h1 class="title">Войти</h1>
+  <app-list-errors [errors]="errors"></app-list-errors>
+  <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
+    <div class="field">
+      <label class="label">Email</label>
+      <div class="control has-icons-left has-icons-right">
+        <input class="input" placeholder="Email адрес" formControlName="email" type="email" required>
+        <span class="icon is-small is-left">
+          <i class="fas fa-envelope"></i>
+        </span>
+        <span class="icon is-small is-right" *ngIf="requiredEmailError">
+          <i class="fas fa-exclamation-triangle"></i>
+        </span>
+        <p class="help is-danger" *ngIf="requiredEmailError">Поле email не должно быть пустым</p>
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Пароль</label>
+      <div class="control has-icons-left has-icons-right">
+        <input class="input" placeholder="Пароль" formControlName="password" type="password">
+        <span class="icon is-small is-left">
+          <i class="fas fa-lock"></i>
+        </span>
+        <span class="icon is-small is-right" *ngIf="requiredPasswordError">
+          <i class="fas fa-exclamation-triangle"></i>
+        </span>
+      </div>
+      <p class="help is-danger" *ngIf="requiredPasswordError">Поле пароль не должно быть пустым</p>
+    </div>
+    <button class="button" type="submit">Войти</button>
+  </form>
+</section>

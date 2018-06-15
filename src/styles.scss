@@ -1,0 +1,9 @@
+@import "~bulma/bulma";
+
+.ng-invalid {
+    @extend .is-danger;
+}
+
+.ng-invalid.ng-untouched {
+    border-color: rgb(219, 219, 219);
+}
