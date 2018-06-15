@@ -4,4 +4,5 @@ export interface User {
   refresh_token: string;
   id: string;
   role: string;
+  slug: string;
 }

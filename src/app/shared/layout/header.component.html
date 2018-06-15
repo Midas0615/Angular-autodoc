@@ -1,20 +1,29 @@
-<nav>
-  <div class="nav-wrapper">
-  <span *ngIf="isAuthenticated" class="toolbar-role">Ваш статус: {{ currentUser.role | userRole }}</span>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-menu" *ngIf="!isAuthenticated">
+    <div class="navbar-end">
+      <a class="navbar-item" routerLink="/login">Войти</a>
+      <a class="navbar-item" routerLink="/register">Регистрация</a>
+    </div>
+  </div>
 
-  <ul class="right" *ngIf="!isAuthenticated">
-    <li class=""><a class="" routerLink="/login">Войти</a></li>
-    <li class=""><a class="" routerLink="/register">Зарегистрироваться</a></li>
-  </ul>
-
-  <ul class="right" *ngIf="isAuthenticated">
-    <li class="nav-item"><a class="nav-link" routerLink="/main">Главная</a></li>
-    <li class="nav-item"><a class="nav-link" [matMenuTriggerFor]="menu" routerLink="/main">Пользователь</a></li>
-    <!-- <button mat-button [matMenuTriggerFor]="menu">Пользователь</button> -->
-    <mat-menu #menu="matMenu" yPosition="below" [overlapTrigger]="false">
-      <a mat-menu-item routerLink="/profile/view">Профиль</a>
-      <a mat-menu-item href="javascript:void(0)" (click)="logout()">Выйти</a>
-    </mat-menu>
-  </ul>
-</div>
+  <div class="navbar-menu" *ngIf="isAuthenticated">
+    <div class="navbar-end">
+      <a class="navbar-item" routerLink="/main">Главная</a>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <div class="navbar-link">
+          <figure class="profile-img is-64x64">
+            <img src="https://bulma.io/images/placeholders/128x128.png">
+          </figure>
+          <div class="profile_info">
+            <p class="profile-firstname">{{ currentUser.slug }}</p>
+            <p class="profile-status">Статус: {{ currentUser.role | userRole }}</p>
+          </div>
+        </div>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" routerLink="/profile/view">Профиль</a>
+          <a class="navbar-item" href="javascript:void(0)" (click)="logout()">Выйти</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </nav>
