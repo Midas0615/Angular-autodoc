@@ -1,31 +1,33 @@
+<section class="section" class="section column is-half is-offset-one-quarter">
+    <h1 class="title">Командировки:</h1>
+    <table class="field" mat-table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="summary">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef>Краткая информация</th>
+        <td mat-cell *matCellDef="let element"><a routerLink="/claim/{{element.id}}">{{element.summary}}</a></td>
+        </ng-container>
 
-Последние заявки:
-<table mat-table [dataSource]="dataSource" matSort>
-    <ng-container matColumnDef="position">
-    <th mat-header-cell mat-sort-header *matHeaderCellDef> No. </th>
-    <td mat-cell *matCellDef="let element"><a routerLink="{{element.details}}">{{element.position}}</a></td>
-    </ng-container>
+        <ng-container matColumnDef="created_at">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Дата создания </th>
+        <td mat-cell *matCellDef="let element"> {{element.created_at | date:'dd.MM.yyyy HH:mm'}} </td>
+        </ng-container>
 
-    <ng-container matColumnDef="created_at">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Дата создания </th>
-    <td mat-cell *matCellDef="let element"> {{element.created_at | date:'dd.MM.yyyy HH:mm'}} </td>
-    </ng-container>
+        <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Статус</th>
+        <td mat-cell *matCellDef="let element">
+            <span class="tag" [ngClass]="{
+                'is-info': element.status == 'notExamined',
+                'is-success': element.status == 'accepted',
+                'is-danger': element.status == 'rejected'
+            }">{{element.status | claim_status}}</span></td>
+        </ng-container>
 
-    <ng-container matColumnDef="status">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>Статус</th>
-    <td mat-cell *matCellDef="let element" [ngClass]="{
-        'claim-notexamined': element.status == 'notExamined',
-        'claim-accepted': element.status == 'accepted',
-        'claim-rejected': element.status == 'rejected'
-    }"> {{element.status | claim_status}} </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
-        
-        
-<div *ngIf="role == 'student' || role == 'collaborator'">
-    <a mat-button routerLink="/claim">Оформить новую</a>
-</div>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+            
+            
+    <div *ngIf="role == 'student' || role == 'collaborator'">
+        <a class="button" routerLink="/claim">Оформить новую</a>
+    </div>
+</section>
 

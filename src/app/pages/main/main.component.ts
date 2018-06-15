@@ -3,6 +3,7 @@ import { ClaimService, UserService } from '../../core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { DataSource } from '@angular/cdk/table';
 import {MatSort, MatTableDataSource} from '@angular/material';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-main',
@@ -10,7 +11,7 @@ import {MatSort, MatTableDataSource} from '@angular/material';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  displayedColumns = ['position', 'created_at', 'status'];
+  displayedColumns = ['summary', 'created_at', 'status'];
   dataSource = undefined;
   role = '';
 
@@ -27,7 +28,18 @@ export class MainComponent implements OnInit {
     });
     this.claimService.getClaims().subscribe(
       (data: ClaimElement[]) => {
-        this.dataSource = new MatTableDataSource(data);
+        const dataForTable = [];
+        data.forEach(el => {
+          const start_date = formatDate(el.start_date, 'dd.MM', 'en-US')
+          const finish_date = formatDate(el.finish_date, 'dd.MM', 'en-US')
+          dataForTable.push({
+            id: el.id,
+            summary: `${el.destination} ${start_date} - ${finish_date}`,
+            created_at: el.created_at,
+            status: el.status
+          })
+        })
+        this.dataSource = new MatTableDataSource(dataForTable);
         this.dataSource.sort = this.sort;
       }
     );
@@ -37,8 +49,10 @@ export class MainComponent implements OnInit {
 
 
 export interface ClaimElement {
-  position: string;
-  created_at: string;
+  id: string;
+  destination: string;
+  start_date: string;
+  finish_date: Date;
+  created_at: Date;
   status: string;
-  details: string;
 }

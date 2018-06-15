@@ -13,18 +13,6 @@ export class ClaimService {
 
   getClaims() {
     return this.apiService.get('/claims')
-      .pipe(map(data => {
-        const result = []
-        data.forEach(el => {
-          result.push({
-            position: el.id,
-            created_at: el.created_at,
-            status: el.status,
-            details: `/claim/${el.id}`
-          })
-        });
-        return result
-      }))
   }
 
   getClaimDetail(claim_id) {
