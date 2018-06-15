@@ -28,9 +28,9 @@ export class LoginComponent implements OnInit {
 
   get password() { return this.loginForm.get('password'); }
 
-  get requiredPasswordError() { return (this.password.hasError('required') && this.password.touched) || !this.password.pristine }
+  get requiredPasswordError() { return this.password.hasError('required') && this.password.touched }
 
-  get requiredEmailError() { return (this.email.hasError('required') && this.email.touched) || !this.email.pristine }
+  get requiredEmailError() { return this.email.hasError('required') && this.email.touched }
 
   ngOnInit() {
   }

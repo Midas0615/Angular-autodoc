@@ -28,10 +28,25 @@ export class RegisterComponent implements OnInit {
       'passwords': this.fb.group({
         'password': ['', Validators.required],
         'confirmPassword': ['', Validators.required]
-      }, { validator: PasswordValidation.MatchPassword }),
-      'role': ['', Validators.required]
+      }, { validator: PasswordValidation.MatchPassword })
     });
   }
+
+  get email() { return this.registerForm.get('email'); }
+
+  get password() { return this.registerForm.get('passwords').get('password'); }
+
+  get confirmPassword() { return this.registerForm.get('passwords').get('confirmPassword'); }
+
+  get requiredEmailError() { return this.email.hasError('required') && this.email.touched }
+
+  get requiredPasswordError() { return this.password.hasError('required') && this.password.touched }
+
+  get requiredConfirmPasswordError() {
+    return this.confirmPassword.hasError('required') && this.confirmPassword.touched
+  }
+
+  get matchPasswordsError() { return this.confirmPassword.hasError('MatchPassword'); }
 
   ngOnInit() {
   }

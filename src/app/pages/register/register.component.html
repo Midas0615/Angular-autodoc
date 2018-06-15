@@ -1,40 +1,51 @@
-<mat-card>
-    <mat-card-title>
-      Регистрация
-    </mat-card-title>
-    <mat-card-content>
-      <form [formGroup]="registerForm" (ngSubmit)="submitForm()">
-        <mat-form-field>
-          <input matInput placeholder="Email адрес" formControlName="email">
-          <mat-error *ngIf="registerForm.controls.email.hasError('required')">
-            Поле Email не должно быть пустым
-          </mat-error>
-        </mat-form-field>
-        <div formGroupName="passwords">
-          <mat-form-field>
-            <input matInput type="password" placeholder="Пароль" formControlName="password">
-            <mat-error *ngIf="registerForm.controls.passwords.controls.password.hasError('required')">
-              Поле Пароль не должно быть пустым
-            </mat-error>
-          </mat-form-field>
-          <mat-form-field>
-              <input matInput type="password" placeholder="Подтвердите пароль" formControlName="confirmPassword">
-              <mat-error *ngIf="registerForm.controls.passwords.controls.confirmPassword.hasError('required')">
-                Поле Подтвердите пароль не должно быть пустым
-              </mat-error>
-              <mat-error *ngIf="registerForm.controls.passwords.controls.confirmPassword.errors?.MatchPassword">
-                Пароли не совпадают
-              </mat-error>
-          </mat-form-field>
+<section class="section column is-one-third is-offset-one-third">
+    <h1 class="title">Регистрация</h1>
+    <app-list-errors [errors]="errors"></app-list-errors>
+    <form [formGroup]="registerForm" (ngSubmit)="submitForm()">
+      <div class="field">
+        <label class="label">Email</label>
+        <div class="control has-icons-left has-icons-right">
+          <input class="input" placeholder="Email адрес" formControlName="email" type="email" required>
+          <span class="icon is-small is-left">
+            <i class="fas fa-envelope"></i>
+          </span>
+          <span class="icon is-small is-right" *ngIf="requiredEmailError">
+            <i class="fas fa-exclamation-triangle"></i>
+          </span>
+          <p class="help is-danger" *ngIf="requiredEmailError">Поле email не должно быть пустым</p>
         </div>
-        <mat-form-field>
-          <mat-select placeholder="Выберите роль" formControlName="role">
-            <mat-option *ngFor="let role of roles" [value]="role.value">
-              {{ role.viewValue }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <button mat-button type="submit" [disabled]="!registerForm.valid">Зарегистрироваться</button>
-      </form>
-    </mat-card-content>
-</mat-card>
+      </div>
+
+      <div formGroupName="passwords" class="field">
+        <div class="field">
+          <label class="label">Пароль</label>
+          <div class="control has-icons-left has-icons-right">
+            <input class="input" placeholder="Пароль" formControlName="password" type="password">
+            <span class="icon is-small is-left">
+              <i class="fas fa-lock"></i>
+            </span>
+            <span class="icon is-small is-right" *ngIf="requiredPasswordError">
+              <i class="fas fa-exclamation-triangle"></i>
+            </span>
+          </div>
+          <p class="help is-danger" *ngIf="requiredPasswordError">Поле Пароль не должно быть пустым</p>
+        </div>
+        <div class="field">
+          <label class="label">Подтвердите пароль</label>
+          <div class="control has-icons-left has-icons-right">
+            <input class="input" placeholder="Пароль" formControlName="confirmPassword" type="password">
+            <span class="icon is-small is-left">
+              <i class="fas fa-lock"></i>
+            </span>
+            <span class="icon is-small is-right" *ngIf="requiredConfirmPasswordError">
+              <i class="fas fa-exclamation-triangle"></i>
+            </span>
+          </div>
+          <p class="help is-danger" *ngIf="requiredConfirmPasswordError">Поле Подтвердите пароль не должно быть пустым</p>
+          <p class="help is-danger" *ngIf="matchPasswordsError">Пароли должны совпадать</p>
+        </div>
+      </div>
+
+      <button class="button" type="submit">Зарегистрироваться</button>
+    </form>
+  </section>
