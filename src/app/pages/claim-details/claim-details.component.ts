@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ClaimService, UserService, User, DocumentService } from '../../core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -11,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 export class ClaimDetailsComponent implements OnInit {
   claimId: String = '';
 
-  claim: any;
+  claim: Claim;
   currentUser: User;
   readyDocuments = [];
 
@@ -20,7 +20,6 @@ export class ClaimDetailsComponent implements OnInit {
     private userService: UserService,
     private documentService: DocumentService,
     private route: ActivatedRoute,
-    private router: Router,
     private toastr: ToastrService
   ) { }
 
@@ -46,7 +45,7 @@ export class ClaimDetailsComponent implements OnInit {
 
   accept() {
     this.claimService.acceptClaim(this.claimId).subscribe(
-      data => {
+      () => {
         this.claim.status = 'accepted';
         this.toastr.success('Заявка одобрена');
       }
@@ -55,7 +54,7 @@ export class ClaimDetailsComponent implements OnInit {
 
   reject() {
     this.claimService.rejectClaim(this.claimId).subscribe(
-      data => {
+      () => {
         this.claim.status = 'rejected';
         this.toastr.success('Заявка отклонена');
       }
@@ -80,4 +79,10 @@ export class ClaimDetailsComponent implements OnInit {
     )
   }
 
+}
+
+
+interface Claim {
+  status: string;
+  request_person_id: {}
 }
