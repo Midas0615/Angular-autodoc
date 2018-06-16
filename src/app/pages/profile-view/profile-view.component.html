@@ -9,7 +9,7 @@
         <tbody>
           <tr>
             <td>Email</td>
-            <td>{{ userProfile.email }}</td>
+            <td>{{ currentUser.email }}</td>
           </tr>
           <tr>
             <td>Фамилия</td>
@@ -27,22 +27,9 @@
             <td>Паспорт</td>
             <td>{{ userProfile.passport_series }} {{ userProfile.passport_number }}</td>
           </tr>
-        </tbody>
-      </table>
-      <h2 class="subtitle" *ngIf="currentUser.role === 'student'">Карточка студента</h2>
-      <table class="table" *ngIf="currentUser.role === 'student'">
-        <tbody>
           <tr>
             <td>Структурное подразделение:</td>
             <td>{{ userProfile.structural_unit }}</td>
-          </tr>
-          <tr>
-            <td>Группа</td>
-            <td>{{ userProfile.group }}</td>
-          </tr>
-          <tr>
-            <td>Курс</td>
-            <td>{{ userProfile.course }}</td>
           </tr>
           <tr>
             <td>Зав. кафедрой</td>
@@ -50,12 +37,25 @@
           </tr>
         </tbody>
       </table>
-      <h2 class="subtitle" *ngIf="currentUser.role === 'collaborator'">Карточка сотрудника</h2>
-      <table class="table" *ngIf="currentUser.role === 'collaborator'">
+      <h2 class="subtitle" *ngIf="userProfile?.student_profile">Карточка студента</h2>
+      <table class="table" *ngIf="userProfile?.student_profile">
+        <tbody>
+          <tr>
+            <td>Группа</td>
+            <td>{{ userProfile.student_profile.group }}</td>
+          </tr>
+          <tr>
+            <td>Курс</td>
+            <td>{{ userProfile.student_profile.course }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <h2 class="subtitle" *ngIf="currentUser?.collaborator_profile">Карточка сотрудника</h2>
+      <table class="table" *ngIf="currentUser?.collaborator_profile">
         <tbody>
           <tr>
             <td>Должность</td>
-            <td>{{ userProfile.position }}</td>
+            <td>{{ userProfile.collaborator_profile.position }}</td>
           </tr>
         </tbody>
       </table>

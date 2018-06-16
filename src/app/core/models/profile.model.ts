@@ -5,8 +5,17 @@ export interface Profile {
     passport_series: string,
     passport_number: string,
     structural_unit: string,
-    course: string,
-    group: string,
     head_of_department: string;
     email: string
+    student_profile: StudentProfile,
+    collaborator_profile: CollaboratorProfile
+}
+
+interface StudentProfile {
+    course: string,
+    group: string,
+}
+
+interface CollaboratorProfile {
+    position: string;
 }

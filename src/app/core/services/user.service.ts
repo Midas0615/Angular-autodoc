@@ -41,11 +41,11 @@ export class UserService {
     }
   }
 
-  setAuth(user: User) {
+  setAuth(data) {
     // Save JWT sent from server in localstorage
-    this.jwtService.saveToken(user.access_token, user.refresh_token);
+    this.jwtService.saveToken(data.tokens.access_token, data.tokens.refresh_token);
     // Set current user data into observable
-    this.currentUserSubject.next(user);
+    this.currentUserSubject.next(data.user);
     // Set isAuthenticated to true
     this.isAuthenticatedSubject.next(true);
   }

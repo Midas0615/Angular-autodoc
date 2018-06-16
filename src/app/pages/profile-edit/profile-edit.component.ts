@@ -46,8 +46,6 @@ export class ProfileEditComponent implements OnInit {
         this.profileForm.controls.first_name.setValue(data.first_name);
         this.profileForm.controls.patronymic.setValue(data.patronymic);
         this.profileForm.controls.structural_unit.setValue(data.structural_unit);
-        this.profileForm.controls.course.setValue(data.course);
-        this.profileForm.controls.group.setValue(data.group);
         this.profileForm.controls.email.setValue(data.email);
         this.profileForm.controls.passport_series.setValue(data.passport_series);
         this.profileForm.controls.passport_number.setValue(data.passport_number);
