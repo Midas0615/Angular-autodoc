@@ -32,18 +32,11 @@ export class ClaimNewComponent implements OnInit {
             start_date: ['', Validators.required],
             finish_date: ['', Validators.required],
           });
-          this.thirdFormGroup = this.fb.group({
-            goal: ['', Validators.required],
-          });
         } else {
           this.secondFormGroup = this.fb.group({
             term_without_transfer: ['', Validators.required],
             start_date: ['', Validators.required],
             finish_date: ['', Validators.required],
-          });
-          this.thirdFormGroup = this.fb.group({
-            goal: ['', Validators.required],
-            reason: ['', Validators.required]
           });
         }
       }
@@ -53,7 +46,30 @@ export class ClaimNewComponent implements OnInit {
       dst_city: ['', Validators.required],
       dst_organization: ['', Validators.required],
     });
+    this.thirdFormGroup = this.fb.group({
+      goal: ['', Validators.required],
+      reason: ['', Validators.required]
+    });
   }
+
+  get dst_country() { return this.firstFormGroup.get('dst_country'); }
+  get dst_city() { return this.firstFormGroup.get('dst_city'); }
+  get dst_organization() { return this.firstFormGroup.get('dst_organization'); }
+  get term_without_transfer() { return this.secondFormGroup.get('term_without_transfer'); }
+  get start_date() { return this.secondFormGroup.get('start_date'); }
+  get finish_date() { return this.secondFormGroup.get('finish_date'); }
+  get goal() { return this.thirdFormGroup.get('goal'); }
+  get reason() { return this.thirdFormGroup.get('reason'); }
+
+  get requiredDstCountryError() { return this.dst_country.hasError('required') && this.dst_country.touched }
+  get requiredDstCityError() { return this.dst_city.hasError('required') && this.dst_city.touched }
+  get requiredDstOrganizationError() { return this.dst_organization.hasError('required') && this.dst_organization.touched }
+  get requiredTermWithoutTransferError() { return this.term_without_transfer.hasError('required') && this.term_without_transfer.touched }
+  get requiredStartDateError() { return this.start_date.hasError('required') && this.start_date.touched }
+  get requiredFinishDateError() { return this.finish_date.hasError('required') && this.finish_date.touched }
+  get requiredGoalError() { return this.goal.hasError('required') && this.goal.touched }
+  get requiredReasonError() { return this.reason.hasError('required') && this.reason.touched }
+
 
   createClaim() {
     const claimDetails = Object.assign(

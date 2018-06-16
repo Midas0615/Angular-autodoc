@@ -1,0 +1,12 @@
+.buttons-bar button {
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.control {
+    width: 50%;
+}
+
+.date {
+    display: flex;
+}
