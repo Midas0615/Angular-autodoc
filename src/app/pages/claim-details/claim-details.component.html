@@ -79,23 +79,24 @@
         </p>
       </div>
     
-      
-      <button class="button is-success is-outlined" *ngIf="currentUser.role === 'lpr'" (click)="accept()">
-        <span class="icon">
-          <i class="fas fa-thumbs-up"></i>
-        </span>
-        <span>Одобрить</span>
-      </button>
-      <button class="button is-danger is-outlined" *ngIf="currentUser.role === 'lpr'" (click)="reject()">
-        <span class="icon">
-          <i class="fas fa-thumbs-down"></i>
-        </span>
-        <span>Отклонить</span>
-      </button>
-      <button class="button" *ngIf="currentUser.role === 'secretary'" (click)="createDocuments()">
-        <span *ngIf="readyDocuments.length == 0">Сгенерировать документы</span>
-        <span *ngIf="readyDocuments.length != 0">Сгенерировать документы заново</span>
-      </button>
+      <div class="buttons-bar">
+        <button class="button is-success is-outlined" *ngIf="currentUser.role === 'lpr'" (click)="accept()">
+          <span class="icon">
+            <i class="fas fa-thumbs-up"></i>
+          </span>
+          <span>Одобрить</span>
+        </button>
+        <button class="button is-danger is-outlined" *ngIf="currentUser.role === 'lpr'" (click)="reject()">
+          <span class="icon">
+            <i class="fas fa-thumbs-down"></i>
+          </span>
+          <span>Отклонить</span>
+        </button>
+        <button class="button" *ngIf="currentUser.role === 'secretary'" (click)="createDocuments()">
+          <span *ngIf="readyDocuments.length == 0">Сгенерировать документы</span>
+          <span *ngIf="readyDocuments.length != 0">Сгенерировать документы заново</span>
+        </button>
+      </div>
     </div>
   </div>
 </section>
