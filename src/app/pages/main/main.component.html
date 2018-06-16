@@ -27,7 +27,12 @@
             
             
     <div *ngIf="role == 'student' || role == 'collaborator'">
-        <a class="button" routerLink="/claim">Оформить новую</a>
+        <a class="button" routerLink="/claim">
+            <span class="icon">
+                <i class="fas fa-plus"></i>
+            </span>
+            <span>Оформить новую</span>
+        </a>
     </div>
 </section>
 
