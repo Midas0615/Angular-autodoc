@@ -1,46 +1,70 @@
-<mat-card>
-  <mat-card-title>Профиль</mat-card-title>
-  <mat-card-content>
-      <mat-list *ngIf="userProfile">
-          <mat-list-item>
-            <span class="item-title">Фамилия:&nbsp;</span>
-            <span>{{ userProfile.last_name }}</span>
-          </mat-list-item>
-          <mat-list-item>
-            <span class="item-title">Имя:&nbsp;</span>
-            <span>{{ userProfile.first_name }}</span>
-          </mat-list-item>
-          <mat-list-item>
-            <span class="item-title">Отчество:&nbsp;</span>
-            <span>{{ userProfile.patronymic }}</span>
-          </mat-list-item>
-          <mat-list-item>
-            <span class="item-title">Структурное подразделение:&nbsp;</span>
-            <span>{{ userProfile.structural_unit }}</span>
-          </mat-list-item>
-          <mat-list-item>
-            <span class="item-title">Группа:&nbsp;</span>
-            <span>{{ userProfile.group }}</span>
-          </mat-list-item>
-          <mat-list-item>
-            <span class="item-title">Курс:&nbsp;</span>
-            <span>{{ userProfile.course }}</span>
-          </mat-list-item>
-          <mat-list-item>
-              <span class="item-title">Зав. кафедрой:&nbsp;</span>
-              <span>{{ userProfile.head_of_department }}</span>
-            </mat-list-item>
-          <mat-list-item>
-            <span class="item-title">Email:&nbsp;</span>
-            <span>{{ userProfile.email }}</span>
-          </mat-list-item>
-          <mat-list-item>
-            <span class="item-title">Паспорт:&nbsp;</span>
-            <span>{{ userProfile.passport_series }} {{ userProfile.passport_number }}</span>
-          </mat-list-item>
-      </mat-list>
-  </mat-card-content>
-  <mat-card-actions>
-    <a mat-button routerLink="/profile/edit">Редактировать</a>
-  </mat-card-actions>
-</mat-card>
+<section class="section" class="section column is-half is-offset-one-quarter">
+  <div class="columns">
+    <div class="column is-1">
+    </div>
+    <div class="column">
+      <h1 class="title">Профиль {{ currentUser.slug }}</h1>
+      <h2 class="subtitle">Общее</h2>
+      <table class="table" *ngIf="userProfile">
+        <tbody>
+          <tr>
+            <td>Email</td>
+            <td>{{ userProfile.email }}</td>
+          </tr>
+          <tr>
+            <td>Фамилия</td>
+            <td>{{ userProfile.last_name }}</td>
+          </tr>
+          <tr>
+            <td>Имя</td>
+            <td>{{ userProfile.first_name }}</td>
+          </tr>
+          <tr>
+            <td>Отчество</td>
+            <td>{{ userProfile.patronymic }}</td>
+          </tr>
+          <tr>
+            <td>Паспорт</td>
+            <td>{{ userProfile.passport_series }} {{ userProfile.passport_number }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <h2 class="subtitle" *ngIf="currentUser.role === 'student'">Карточка студента</h2>
+      <table class="table" *ngIf="currentUser.role === 'student'">
+        <tbody>
+          <tr>
+            <td>Структурное подразделение:</td>
+            <td>{{ userProfile.structural_unit }}</td>
+          </tr>
+          <tr>
+            <td>Группа</td>
+            <td>{{ userProfile.group }}</td>
+          </tr>
+          <tr>
+            <td>Курс</td>
+            <td>{{ userProfile.course }}</td>
+          </tr>
+          <tr>
+            <td>Зав. кафедрой</td>
+            <td>{{ userProfile.head_of_department }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <h2 class="subtitle" *ngIf="currentUser.role === 'collaborator'">Карточка сотрудника</h2>
+      <table class="table" *ngIf="currentUser.role === 'collaborator'">
+        <tbody>
+          <tr>
+            <td>Должность</td>
+            <td>{{ userProfile.position }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <a class="button" routerLink="/profile/edit">
+        <span class="icon">
+          <i class="fas fa-pencil-alt"></i>
+        </span>
+        <span>Редактировать</span>
+      </a>
+    </div>
+  </div>
+</section>
